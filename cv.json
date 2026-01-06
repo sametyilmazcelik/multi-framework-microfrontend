@@ -1,0 +1,345 @@
+{
+  "profile": {
+    "name": "Samet Yılmazçelik",
+    "title": {
+      "tr": "Senior Frontend Developer",
+      "en": "Senior Frontend Developer"
+    },
+    "birthDate": "01/05/1994",
+    "phone": "(+90) 5070339915",
+    "email": "samet.yilmazcelik@gmail.com",
+    "linkedin": "linkedin.com/in/samet-yilmazcelik",
+    "location": {
+      "tr": "İstanbul, Türkiye",
+      "en": "Istanbul, Turkey"
+    },
+    "summary": {
+      "tr": "Frontend geliştirme alanında 9 yılı aşkın tecrübeye sahibim. Modanisa ve Modaselvim gibi büyük ölçekli e-ticaret platformlarında kritik projelerde yer aldım. Modern framework'ler ve teknolojilerle yüksek performanslı, kullanıcı odaklı arayüzler geliştiriyorum.",
+      "en": "Senior Frontend Developer with over 9 years of experience in frontend development. Contributed to critical projects at large-scale e-commerce platforms such as Modanisa and Modaselvim. Develops high-performance, user-centric interfaces using modern frameworks and technologies."
+    }
+  },
+  "summary": {
+    "tr": "9 yılı aşkın süredir frontend geliştirme alanında deneyim sahibiyim. HTML, CSS, Sass, Less, Bootstrap, Tailwind CSS, jQuery ve JavaScript gibi temel teknolojilerin yanı sıra React.js, Vue.js ve Svelte gibi modern framework'ler üzerinde çalıştım. Tasarım süreçlerini kullanıcı odaklı çözümlerle birleştirerek, işlevselliği yüksek ve kullanıcı deneyimini önceleyen arayüzler oluşturdum. UI/UX araçlarına ve responsive tasarım tekniklerine hâkim olarak, estetik ve fonksiyonel arayüzlerin üretiminde aktif rol aldım. Ayrıca backend frameworklerle (Laravel, Symfony, ASP.NET Core) uyumlu frontend geliştirme tecrübem bulunmaktadır. Git, Docker ve CI/CD araçları ile projelerin sürekliliğini ve kalitesini garanti altına almaktayım.",
+    "en": "Senior Frontend Developer with over 9 years of experience in frontend development. Proficient in HTML, CSS, Sass, Less, Bootstrap, Tailwind CSS, jQuery, and JavaScript, as well as modern frameworks like React.js, Vue.js, and Svelte. Combines design processes with user-centric solutions to create highly functional interfaces that prioritize user experience. Skilled in UI/UX tools and responsive design techniques, with experience in frontend development compatible with backend frameworks (Laravel, Symfony, ASP.NET Core). Uses Git, Docker, and CI/CD tools to ensure project continuity and quality."
+  },
+  "experiences": [
+    {
+      "company": "MODASELVIM",
+      "location": {
+        "tr": "İstanbul, Türkiye",
+        "en": "Istanbul, Turkey"
+      },
+      "role": {
+        "tr": "Senior Frontend Developer",
+        "en": "Senior Frontend Developer"
+      },
+      "period": {
+        "start": "15/05/2023",
+        "end": {
+          "tr": "Mevcut Durum",
+          "en": "Present"
+        }
+      },
+      "bullets": {
+        "tr": [
+          "E-ticaret depo süreçlerine yönelik dijital çözümler geliştirerek operasyonel verimliliği artırdım",
+          "Ürün ekleme, silme, listeleme gibi işlemleri sadeleştiren arayüzler tasarladım",
+          "Tahsilat raporları, fatura kontrolü, iade oranı hesaplama ve kargo analiz süreçlerine özel finansal araçlar geliştirdim",
+          "Çağrı merkezi için churn raporlama modülleri ve kullanıcı dostu arayüzler oluşturdum"
+        ],
+        "en": [
+          "Developed digital solutions for e-commerce warehouse processes to increase operational efficiency",
+          "Designed interfaces that simplified operations such as product addition, deletion, and listing",
+          "Developed financial tools for collection reports, invoice verification, return rate calculation, and cargo analysis processes",
+          "Created churn reporting modules and user-friendly interfaces for call center operations"
+        ]
+      },
+      "tech": ["HTML", "CSS", "JavaScript", "Svelte", "Bootstrap", "Tailwind CSS", "Vite", "Flutter WebView"]
+    },
+    {
+      "company": "MODANISA",
+      "location": {
+        "tr": "İstanbul, Türkiye",
+        "en": "Istanbul, Turkey"
+      },
+      "role": {
+        "tr": "Frontend Developer",
+        "en": "Frontend Developer"
+      },
+      "period": {
+        "start": "07/2021",
+        "end": "05/2023"
+      },
+      "bullets": {
+        "tr": [
+          "Proje geliştirme sürecinde frontend entegrasyon süreçlerinde aktif rol aldım",
+          "Sass ve Flex ile responsive yapılar oluşturarak sayfaları modernize ettim",
+          "Influencer Affiliate Tech, Self-Service (Modanisa Assistant), KIM (Kolay İade Merkezi) gibi projelerde görev aldım",
+          "Sipariş yönetimi, favori listeleri ve ürün listeleme modüllerini geliştirdim",
+          "Piksel hassasiyetinde tasarımlar üreterek kullanıcı deneyimini iyileştirdim",
+          "Milyonlarca kullanıcının etkileşimde olduğu kritik sayfaları optimize ettim"
+        ],
+        "en": [
+          "Actively participated in frontend integration processes during project development",
+          "Modernized pages by creating responsive structures with Sass and Flex",
+          "Worked on projects including Influencer Affiliate Tech, Self-Service (Modanisa Assistant), and KIM (Kolay İade Merkezi)",
+          "Developed order management, favorite lists, and product listing modules",
+          "Produced pixel-perfect designs to improve user experience",
+          "Optimized critical pages with millions of user interactions"
+        ]
+      },
+      "tech": ["HTML", "CSS", "Sass", "Flex", "React.js", "JavaScript", "REST API"]
+    },
+    {
+      "company": "EXEDRA (HRPEAK)",
+      "location": {
+        "tr": "İstanbul, Türkiye",
+        "en": "Istanbul, Turkey"
+      },
+      "role": {
+        "tr": "Frontend Developer",
+        "en": "Frontend Developer"
+      },
+      "period": {
+        "start": "10/2020",
+        "end": "07/2021"
+      },
+      "bullets": {
+        "tr": [
+          "Yapay zekâ tabanlı İK platformu olan HRPeak için UI/UX tasarımı ve frontend entegrasyonlarını gerçekleştirdim",
+          "Adobe XD ve Photoshop ile arayüz tasarımları hazırladım",
+          "Binlerce adayın eş zamanlı katıldığı online sınav ve değerlendirme arayüzlerini geliştirdim",
+          "Yüksek trafik altında stabil çalışacak şekilde platformu optimize ettim"
+        ],
+        "en": [
+          "Performed UI/UX design and frontend integrations for HRPeak, an AI-based HR platform",
+          "Prepared interface designs with Adobe XD and Photoshop",
+          "Developed online exam and assessment interfaces for thousands of simultaneous candidates",
+          "Optimized platform to operate stably under high traffic conditions"
+        ]
+      },
+      "tech": ["React", "PostCSS", "HTML", "CSS", "Bootstrap"]
+    },
+    {
+      "company": "TALENTSYS",
+      "location": {
+        "tr": "İstanbul, Türkiye",
+        "en": "Istanbul, Turkey"
+      },
+      "role": {
+        "tr": "Software Development Specialist",
+        "en": "Software Development Specialist"
+      },
+      "period": {
+        "start": "12/2014",
+        "end": "10/2020"
+      },
+      "bullets": {
+        "tr": [
+          "ASP tabanlı sistemleri .NET platformuna taşıyarak modernizasyon süreçlerinde aktif rol aldım",
+          "Inka, e-Performance ve TalentPayroll gibi insan kaynakları projelerinde UI/UX geliştirmeleri yaptım",
+          "Kullanıcı taleplerine uygun web ve mobil çözümler üreterek projelere uçtan uca katkı sağladım",
+          "Kurumsal firmaların İK ve maaş yönetim süreçlerini yürüttüğü platformların UI/UX tasarımlarını gerçekleştirdim"
+        ],
+        "en": [
+          "Actively participated in modernization processes by migrating ASP-based systems to .NET platform",
+          "Made UI/UX improvements in human resources projects such as Inka, e-Performance, and TalentPayroll",
+          "Produced web and mobile solutions tailored to user needs, contributing end-to-end to projects",
+          "Designed UI/UX for platforms managing HR and payroll processes for enterprise companies"
+        ]
+      },
+      "tech": ["ASP.NET", ".NET", "HTML", "CSS", "JavaScript", "jQuery"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "B2B Tedarik Zinciri ve Varyant Yönetim Sistemi",
+      "description": {
+        "tr": "Satın alma, mal kabul, kalite kontrol ve sevkiyat süreçlerini yöneten, el terminalleriyle entegre saha uygulaması. El terminallerinde (Handheld Terminals) çalışması için Flutter WebView tabanlı hibrit bir yapı kuruldu. Düşük donanımlı cihazlarda dahi akıcı çalışması için Vite ile optimize edilmiş hafif (lightweight) bir frontend mimarisi kurgulandı. Barkod okuma ve paketleme süreçlerini gerçek zamanlı stok verileriyle senkronize hale getirildi.",
+        "en": "Field application integrated with handheld terminals managing purchasing, goods acceptance, quality control, and shipping processes. Established a Flutter WebView-based hybrid structure for handheld terminal operations. Designed a lightweight frontend architecture optimized with Vite for smooth operation even on low-spec devices. Synchronized barcode reading and packaging processes with real-time inventory data."
+      },
+      "tech": ["Svelte", "Vite", "Flutter WebView", "JavaScript", "HTML", "CSS"]
+    },
+    {
+      "name": "Kargo Analiz ve Lojistik Takip Dashboard",
+      "description": {
+        "tr": "Binlerce siparişin kargo durumunu, kayıp/gecikme oranlarını ve teslimat performansını analiz eden veri görselleştirme projesi. Büyük veri setlerini (Big Data) kullanıcı için anlamlı raporlara dönüştüren Data-Heavy dashboardlar tasarlandı. Kargo için API entegrasyonlarını yöneterek sipariş yaşam döngüsünü (Life Cycle) anlık takip edilebilir kıldı. Arayüz performansını Lighthouse skorlarını baz alarak optimize edildi.",
+        "en": "Data visualization project analyzing cargo status, loss/delay rates, and delivery performance of thousands of orders. Designed data-heavy dashboards that transform large datasets (Big Data) into meaningful reports for users. Managed API integrations for cargo to enable real-time tracking of order life cycle. Optimized interface performance based on Lighthouse scores."
+      },
+      "tech": ["Svelte", "Data Visualization", "REST API", "JavaScript", "HTML", "CSS"]
+    },
+    {
+      "name": "Kolay İade Sistemi (KİM)",
+      "description": {
+        "tr": "E-ticaret son kullanıcıları için kargo entegrasyonlu, self-servis iade yönetim modülü. Kullanıcının sipariş seçimi, iade nedeni girişi ve kargo firması ataması süreçlerini içeren akışı sıfırdan inşa edildi. Entegrasyon sayesinde kullanıcıya anlık olarak kargo iade kodu sağlayan otomasyonu frontend tarafında kurgulandı. Tsoft altyapısı ile entegre edilerek kullanıcıların hızlı ve kolay işlem yapabilmesi sağlandı.",
+        "en": "Self-service return management module with cargo integration for e-commerce end users. Built from scratch a flow including user order selection, return reason entry, and cargo company assignment processes. Established frontend automation that provides users with instant cargo return codes through integration. Integrated with Tsoft infrastructure to enable users to perform fast and easy transactions."
+      },
+      "tech": ["React", "JavaScript", "REST API", "CSS", "HTML"]
+    },
+    {
+      "name": "Modanisa.com Core Experience & MarTech",
+      "description": {
+        "tr": "Global e-ticaret platformunun kullanıcı deneyimini iyileştirme, legacy sistemlerin modernizasyonu ve pazarlama teknolojilerinin entegrasyonu. Milyonlarca kullanıcının etkileşimde olduğu Ürün Listeleme, Detay, Sepet ve Favorilerim sayfalarını modern CSS (Flexbox/Grid) ve Sass mimarisiyle yeniden inşa ederek responsive ve yüksek performanslı hale getirildi. Kullanıcı davranışlarını analiz etmek ve pazarlama kampanyalarını optimize etmek için MarTech entegrasyonları gerçekleştirildi.",
+        "en": "Improving user experience of global e-commerce platform, modernizing legacy systems, and integrating marketing technologies. Rebuilt Product Listing, Detail, Cart, and Favorites pages with millions of user interactions using modern CSS (Flexbox/Grid) and Sass architecture to make them responsive and high-performance. Implemented MarTech integrations to analyze user behavior and optimize marketing campaigns."
+      },
+      "tech": ["React.js", "Sass", "CSS", "Flexbox", "Grid", "JavaScript", "HTML"]
+    },
+    {
+      "name": "HRPeak (Yapay Zekâ Destekli İK Platformu)",
+      "description": {
+        "tr": "Yapay zeka tabanlı, video mülakat ve online test modülleri içeren uçtan uca dijital işe alım ve değerlendirme platformu. Binlerce adayın eş zamanlı olarak katıldığı online sınav ve değerlendirme arayüzlerini React kullanarak, yüksek trafik altında stabil çalışacak şekilde geliştirildi. Platformun karmaşık test ve raporlama ekranlarını Bootstrap ve modern CSS teknikleriyle responsive ve kullanıcı dostu hale getirildi.",
+        "en": "End-to-end digital recruitment and assessment platform with AI-based video interview and online test modules. Developed online exam and assessment interfaces for thousands of simultaneous candidates using React, optimized to operate stably under high traffic. Made the platform's complex test and reporting screens responsive and user-friendly using Bootstrap and modern CSS techniques."
+      },
+      "tech": ["React.js", "PostCSS", "HTML", "CSS", "Bootstrap"]
+    },
+    {
+      "name": "Finansal Uygulama Geliştirmeleri",
+      "description": {
+        "tr": "Tahsilat raporları, fatura doğrulama, kargo maliyet hesaplama ve iade oranı analizleri için çeşitli araçlar geliştirildi. Operasyonel süreçleri destekleyen sağlam ve ölçeklenebilir çözümler üretildi.",
+        "en": "Various tools developed for collection reports, invoice verification, cargo cost calculation, and return rate analyses. Produced robust and scalable solutions supporting operational processes."
+      },
+      "tech": ["HTML", "CSS", "JavaScript", "Svelte"]
+    },
+    {
+      "name": "Depo ve Envanter Yönetim Sistemi",
+      "description": {
+        "tr": "Ürün ekleme, silme ve stok takibi gibi temel fonksiyonlar geliştirildi. Satın alma, kalite kontrol, mal kabul ve sayım gibi depo içi operasyonlar sistemleştirildi.",
+        "en": "Developed basic functions such as product addition, deletion, and stock tracking. Systematized warehouse operations including purchasing, quality control, goods acceptance, and inventory counting."
+      },
+      "tech": ["HTML", "CSS", "JavaScript", "Svelte"]
+    },
+    {
+      "name": "Kargo Takip ve Analiz Sistemi",
+      "description": {
+        "tr": "Kargo süreçlerinin izlenmesi ve analiz edilmesi için özel araçlar geliştirildi. Lojistik verimliliği artıracak detaylı raporlama çözümleri sunuldu. Terminal ekranları üzerinden ürün toplama, barkod okuma, sipariş hazırlama ve sevkiyat öncesi kontrol gibi tüm süreçler entegre edildi. Siparişin hazırlanmasından kargoya teslim sürecine kadar olan tüm adımlar dijitalleştirilerek anlık izlenebilir hale getirildi.",
+        "en": "Special tools developed for tracking and analyzing cargo processes. Provided detailed reporting solutions to increase logistics efficiency. Integrated all processes including product picking, barcode reading, order preparation, and pre-shipment control through terminal screens. Digitalized all steps from order preparation to cargo delivery, making them instantly trackable."
+      },
+      "tech": ["HTML", "CSS", "JavaScript", "Svelte"]
+    },
+    {
+      "name": "Çağrı Merkezi Paneli",
+      "description": {
+        "tr": "Müşteri bilgileri ve siparişlerin yönetildiği kullanıcı dostu bir panel tasarlandı. Müşteri davranışlarını izlemeye yönelik churn raporlama ekranları geliştirildi. Çağrı merkezi çalışanlarının iş yükünü azaltacak veri odaklı araçlar sunuldu.",
+        "en": "User-friendly panel designed for managing customer information and orders. Developed churn reporting screens for monitoring customer behavior. Provided data-driven tools to reduce call center workload."
+      },
+      "tech": ["HTML", "CSS", "JavaScript", "Svelte"]
+    },
+    {
+      "name": "Influencer Affiliate Tech",
+      "description": {
+        "tr": "Influencer ilişkilerinin yönetildiği frontend panel geliştirildi. Piksel hassasiyetli arayüzlerle kullanıcı deneyimi iyileştirildi ve erişilebilirlik artırıldı.",
+        "en": "Frontend panel developed for managing influencer relationships. Improved user experience and increased accessibility with pixel-perfect interfaces."
+      },
+      "tech": ["HTML", "CSS", "Sass", "React.js"]
+    },
+    {
+      "name": "Self-Service (Modanisa Asistan)",
+      "description": {
+        "tr": "Kullanıcıların hesap yönetimi ve işlemlerini bağımsız olarak gerçekleştirebildiği bir panel geliştirildi. React.js gibi modern framework'lerle frontend entegrasyonu sağlandı.",
+        "en": "Panel developed where users can independently manage their accounts and transactions. Frontend integration achieved with modern frameworks like React.js."
+      },
+      "tech": ["React.js", "HTML", "CSS", "Sass"]
+    },
+    {
+      "name": "ASP'den .NET'e Geçiş ve İK Çözümleri Modernizasyonu",
+      "description": {
+        "tr": "Inka: İnsan kaynakları yönetim platformunun kullanıcı arayüzleri iyileştirildi, performansı artırıldı. e-Performance: Performans yönetimi sisteminde UI/UX geliştirmeleri yapılarak kullanıcı deneyimi yükseltildi. TalentPayroll: Bordro yönetimi ve İK süreçleri için araçlar geliştirildi, sistem entegrasyonları sağlandı. ASP tabanlı eski sistemlerin .NET mimarisine geçiş süreçlerinde aktif rol alındı. Modernizasyon projeleri kapsamında sistemlerin sürdürülebilirliği ve güncel teknolojiye uyumu sağlandı.",
+        "en": "Inka: Improved user interfaces and increased performance of human resources management platform. e-Performance: Made UI/UX improvements in performance management system to enhance user experience. TalentPayroll: Developed tools for payroll management and HR processes, ensured system integrations. Actively participated in migration processes of ASP-based legacy systems to .NET architecture. Ensured sustainability and alignment with current technology of systems within modernization projects."
+      },
+      "tech": ["ASP.NET", ".NET", "HTML", "CSS", "JavaScript", "jQuery"]
+    },
+    {
+      "name": "Ephesys – Analiz ve Karar Destek Platformu",
+      "description": {
+        "tr": "Kurumsal veri analiz süreçlerini dijitalleştiren, yüksek ölçeklenebilirliğe sahip bir dashboard projesi. Tüm UI/UX mimarisini kurgulandı. Angular kullanarak SSO (Single Sign-On), dinamik yetkilendirme (RBAC) ve çoklu dil desteği gibi kurumsal modülleri inşa edildi.",
+        "en": "Dashboard project digitizing corporate data analysis processes with high scalability. Designed entire UI/UX architecture. Built enterprise modules including SSO (Single Sign-On), dynamic authorization (RBAC), and multi-language support using Angular."
+      },
+      "tech": ["Angular", "TypeScript", "SCSS", "Figma"]
+    },
+    {
+      "name": "Real-Time Mesajlaşma Platformu (Modernizasyon)",
+      "description": {
+        "tr": "Mevcut monolitik ve performans sorunları yaşayan bir sağlık/destek uygulamasının modernizasyon süreci. Yapıyı Next.js ile tamamen bileşen tabanlı (Component-Based) bir mimariye dönüştürerek sayfa yüklenme hızını ve sürdürülebilirliği %40 oranında optimize edildi.",
+        "en": "Modernization process of an existing monolithic health/support application experiencing performance issues. Transformed the structure into a completely component-based architecture using Next.js, optimizing page load speed and sustainability by 40%."
+      },
+      "tech": ["Next.js", "React", "Tailwind CSS"]
+    }
+  ],
+  "skills": {
+    "frontendDevelopment": {
+      "languages": ["HTML5", "CSS3", "JavaScript", "TypeScript", "JSON"],
+      "preprocessors": ["LESS", "SASS", "SCSS", "PostCSS"],
+      "tools": ["Gulp.js", "Webpack", "Docker", "Vite"],
+      "frameworks": ["Bootstrap", "React.js", "Vue.js", "Svelte", "jQuery", "Next.js", "Angular"],
+      "libraries": ["Tailwind CSS"]
+    },
+    "apiDevelopment": {
+      "types": ["REST", "SOAP"]
+    },
+    "uiUxDesign": {
+      "tools": ["Zeplin", "Figma", "Sketch", "Adobe XD", "Photoshop"],
+      "techniques": ["Responsive Design", "Prototyping", "Component-Based Architecture"]
+    },
+    "versionControl": {
+      "tools": ["Git", "GitHub", "GitLab", "Jenkins"]
+    },
+    "backendFrameworks": {
+      "php": ["Laravel", "Symfony"],
+      "dotnet": ["ASP.NET", "ASP.NET Core"]
+    },
+    "projectManagement": {
+      "tools": ["Trello", "JIRA", "Microsoft Teams"]
+    },
+    "mobile": {
+      "technologies": ["Flutter WebView", "Android (Java)"]
+    },
+    "performance": {
+      "tools": ["Lighthouse", "Performance Optimization"]
+    }
+  },
+  "education": [
+    {
+      "institution": {
+        "tr": "Anadolu Üniversitesi",
+        "en": "Anadolu University"
+      },
+      "degree": {
+        "tr": "Yönetim Bilişim Sistemleri",
+        "en": "Management Information Systems"
+      },
+      "status": {
+        "tr": "Mevcut Durum",
+        "en": "Ongoing"
+      }
+    },
+    {
+      "institution": {
+        "tr": "Düzce Üniversitesi",
+        "en": "Duzce University"
+      },
+      "degree": {
+        "tr": "Bilgisayar Teknolojisi ve Programlama",
+        "en": "Computer Technology and Programming"
+      },
+      "year": "2014"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Introduction to Web Performance Optimization",
+      "issuer": "Coursera (offered by Google)"
+    },
+    {
+      "name": "SEO Fundamentals Certificate",
+      "issuer": "Google Digital Garage"
+    },
+    {
+      "name": "Responsive Web Design Certification",
+      "issuer": "FreeCodeCamp"
+    },
+    {
+      "name": "Diction and Effective Communication Certificate",
+      "issuer": "Duzce University"
+    }
+  ]
+}
