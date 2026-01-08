@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
@@ -36,36 +36,36 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js';
               {{ profile.name }}
             </h1>
             <p class="text-xl text-gray-600 mb-6">
-              {{ getTitle() }}
+              {{ profileTitle }}
             </p>
           </div>
           <div class="max-w-3xl">
             <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-              {{ getSummary() }}
+              {{ profileSummary }}
             </p>
           </div>
           <div class="pt-2">
-            <p class="text-sm text-gray-500">{{ getLocation() }}</p>
+            <p class="text-sm text-gray-500">{{ profileLocation }}</p>
           </div>
         </div>
 
-        @if (experiences && experiences.length > 0) {
+        @if (experiencesNormalized && experiencesNormalized.length > 0) {
           <div class="mt-12 pt-8 border-t border-gray-200">
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
               {{ locale === 'tr' ? 'Deneyim' : 'Experience' }}
             </h2>
             <div class="space-y-10">
-              @for (exp of experiences; track exp.id || $index) {
+              @for (exp of experiencesNormalized; track exp.id || $index) {
                 <div class="space-y-4">
                   <div>
                     <h3 class="text-xl font-bold text-gray-900">{{ exp.company }}</h3>
-                    <p class="text-lg text-gray-700 mt-1">{{ getRole(exp) }}</p>
-                    <p class="text-sm text-gray-500 mt-1">{{ getExpLocation(exp) }}</p>
-                    <p class="text-sm text-gray-500 mt-1">{{ getPeriod(exp) }}</p>
+                    <p class="text-lg text-gray-700 mt-1">{{ exp.roleText }}</p>
+                    <p class="text-sm text-gray-500 mt-1">{{ exp.locationText }}</p>
+                    <p class="text-sm text-gray-500 mt-1">{{ exp.periodText }}</p>
                   </div>
-                  @if (getBullets(exp).length > 0) {
+                  @if (exp.bulletsText && exp.bulletsText.length > 0) {
                     <ul class="ml-4 space-y-2 mt-4">
-                      @for (bullet of getBullets(exp); track $index) {
+                      @for (bullet of exp.bulletsText; track $index) {
                         <li class="text-gray-700 flex items-start">
                           <span class="text-teal-500 mr-2">•</span>
                           <span>{{ bullet }}</span>
@@ -88,13 +88,13 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js';
           </div>
         }
 
-        @if (skills && skills.length > 0) {
+        @if (skillsGrouped && skillsGrouped.length > 0) {
           <div class="mt-12 pt-8 border-t border-gray-200">
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
               {{ locale === 'tr' ? 'Yetenekler' : 'Skills' }}
             </h2>
             <div class="space-y-8">
-              @for (category of getGroupedSkills(); track category.name) {
+              @for (category of skillsGrouped; track category.name) {
                 <div class="space-y-4">
                   <h3 class="text-xl font-semibold text-gray-800 border-b border-gray-200 pb-2">
                     {{ category.name }}
@@ -116,6 +116,18 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js';
             </div>
           </div>
         }
+
+        @if (!experiencesNormalized || experiencesNormalized.length === 0) {
+          <div class="mt-12 pt-8 border-t border-gray-200">
+            <p class="text-center text-gray-500">{{ locale === 'tr' ? 'Deneyim verisi bulunamadı' : 'No experience data found' }}</p>
+          </div>
+        }
+
+        @if (!skillsGrouped || skillsGrouped.length === 0) {
+          <div class="mt-12 pt-8 border-t border-gray-200">
+            <p class="text-center text-gray-500">{{ locale === 'tr' ? 'Yetenek verisi bulunamadı' : 'No skills data found' }}</p>
+          </div>
+        }
       }
     </div>
   `,
@@ -134,137 +146,165 @@ export class AboutComponent implements OnInit, OnDestroy {
   locale = 'en';
   supabase: SupabaseClient | null = null;
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  // Normalized data
+  profileTitle = '';
+  profileSummary = '';
+  profileLocation = '';
+  experiencesNormalized: any[] = [];
+  skillsGrouped: any[] = [];
+
+  private observer?: MutationObserver;
+
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private host: ElementRef<HTMLElement>
+  ) { }
 
   ngOnInit() {
     console.info('[MF] Angular About mounted');
 
-    const element = this.getHostElement();
-    const localeAttr = element.getAttribute('locale');
-    const supabaseUrl = (window as any).__SUPABASE_URL__ || '';
-    const supabaseAnon = (window as any).__SUPABASE_ANON_KEY__ || '';
+    // Read locale from attribute
+    this.locale = this.host.nativeElement.getAttribute('locale') || 'en';
 
-    if (!supabaseUrl || !supabaseAnon) {
-      this.error = 'Missing Supabase configuration';
+    // Initialize Supabase
+    this.initSupabase();
+
+    // Load data
+    this.load();
+
+    // Watch for locale attribute changes
+    this.observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'locale') {
+          const nextLocale = this.host.nativeElement.getAttribute('locale') || 'en';
+          if (nextLocale !== this.locale) {
+            console.info(`[MF] Angular locale changed: ${this.locale} -> ${nextLocale}`);
+            this.locale = nextLocale;
+            this.load();
+          }
+        }
+      });
+    });
+
+    this.observer.observe(this.host.nativeElement, {
+      attributes: true,
+      attributeFilter: ['locale']
+    });
+  }
+
+  ngOnDestroy() {
+    this.observer?.disconnect();
+  }
+
+  // Helper functions
+  pickLocale(obj: any, fallback: string = 'en'): string {
+    if (!obj) return '';
+    if (typeof obj === 'string') return obj;
+    return obj[this.locale] ?? obj[fallback] ?? '';
+  }
+
+  pickArray(obj: any, fallback: string = 'en'): any[] {
+    if (Array.isArray(obj)) return obj;
+    if (!obj) return [];
+    return obj[this.locale] ?? obj[fallback] ?? [];
+  }
+
+  getPeriodText(period: any): string {
+    if (!period) return '';
+    if (typeof period === 'string') return period;
+
+    const start = period.start || '';
+    const end = this.pickLocale(period.end) || period.end || (this.locale === 'tr' ? 'Mevcut' : 'Present');
+
+    return start && end ? `${start} – ${end}` : start || end;
+  }
+
+  initSupabase() {
+    const w: any = window;
+    const url = w.__SUPABASE_URL__;
+    const key = w.__SUPABASE_ANON_KEY__;
+
+    if (!url || !key) {
+      this.error = 'Supabase config missing on window globals';
       this.loading = false;
       this.cdr.detectChanges();
       return;
     }
 
-    this.locale = localeAttr === 'tr' ? 'tr' : 'en';
-    this.supabase = createClient(supabaseUrl, supabaseAnon);
-    this.loadData();
+    this.supabase = createClient(url, key);
   }
 
-  ngOnDestroy() { }
-
-  private getHostElement(): HTMLElement {
-    return document.querySelector('mf-angular-about') || document.body;
-  }
-
-  private async loadData() {
+  async load() {
     if (!this.supabase) return;
 
+    this.loading = true;
+    this.error = null;
+    this.cdr.detectChanges();
+
     try {
-      const [profileRes, experiencesRes, skillsRes] = await Promise.all([
+      const [profileRes, expsRes, skillsRes] = await Promise.all([
         this.supabase.from('profile').select('*').single(),
         this.supabase.from('experiences').select('*').order('order_index', { ascending: true }),
-        this.supabase.from('skills').select('*').order('category', { ascending: true }).order('order_index', { ascending: true }),
+        this.supabase.from('skills').select('*').order('order_index', { ascending: true }),
       ]);
 
-      if (profileRes.error) {
-        this.error = 'Error loading profile data';
-        this.loading = false;
-        this.cdr.detectChanges();
-        return;
-      }
+      if (profileRes.error) throw profileRes.error;
 
       this.profile = profileRes.data;
-      this.experiences = experiencesRes.data || [];
-      this.skills = skillsRes.data || [];
+      this.experiences = expsRes.data ?? [];
+      this.skills = skillsRes.data ?? [];
+
+      this.normalizeData();
       this.loading = false;
       this.cdr.detectChanges();
-    } catch (err) {
-      this.error = 'Failed to load data';
+    } catch (e: any) {
+      this.error = e?.message ?? String(e);
       this.loading = false;
       this.cdr.detectChanges();
     }
   }
 
-  getTitle(): string {
-    return this.profile?.title?.[this.locale] || this.profile?.title?.en || '';
-  }
+  normalizeData() {
+    // Profile
+    this.profileTitle = this.pickLocale(this.profile?.title);
+    this.profileSummary = this.pickLocale(this.profile?.summary);
+    this.profileLocation = this.pickLocale(this.profile?.location);
 
-  getSummary(): string {
-    return this.profile?.summary?.[this.locale] || this.profile?.summary?.en || '';
-  }
+    // Experiences
+    this.experiencesNormalized = this.experiences.map((e: any) => ({
+      ...e,
+      roleText: this.pickLocale(e.role),
+      locationText: this.pickLocale(e.location),
+      periodText: this.getPeriodText(e.period),
+      bulletsText: this.pickArray(e.bullets),
+    }));
 
-  getLocation(): string {
-    return this.profile?.location?.[this.locale] || this.profile?.location?.en || '';
-  }
-
-  getRole(exp: any): string {
-    return exp.role?.[this.locale] || exp.role?.en || '';
-  }
-
-  getExpLocation(exp: any): string {
-    return exp.location?.[this.locale] || exp.location?.en || '';
-  }
-
-  getPeriod(exp: any): string {
-    const start = exp.period?.start || '';
-    let end = '';
-    if (typeof exp.period?.end === 'string') {
-      end = exp.period.end;
-    } else if (exp.period?.end) {
-      end = exp.period.end[this.locale] || exp.period.end.en;
-    } else {
-      end = this.locale === 'en' ? 'Present' : 'Mevcut Durum';
-    }
-    return `${start} – ${end}`;
-  }
-
-  getBullets(exp: any): string[] {
-    return exp.bullets?.[this.locale] || exp.bullets?.en || [];
-  }
-
-  getGroupedSkills(): Array<{ name: string; items: Array<{ name: string; level?: string }> }> {
+    // Skills
     const grouped: Record<string, Array<{ name: string; level?: string }>> = {};
 
-    this.skills.forEach((skill) => {
+    this.skills.forEach((skill: any) => {
       const category = skill.category || 'Other';
       if (!grouped[category]) {
         grouped[category] = [];
       }
 
-      // Parse content JSONB - can be either:
-      // 1. Direct array: [{name, level}]
-      // 2. Locale-keyed object: {en: [{name, level}], tr: [{name, level}]}
-      if (skill.content) {
-        let items: any[] = [];
+      const contentArr = Array.isArray(skill.content)
+        ? skill.content
+        : this.pickArray(skill.content);
 
-        if (Array.isArray(skill.content)) {
-          items = skill.content;
-        } else if (typeof skill.content === 'object') {
-          items = skill.content[this.locale] || skill.content.en || skill.content.tr || [];
-        }
-
-        if (Array.isArray(items)) {
-          items.forEach((item: any) => {
-            if (item && typeof item === 'object' && item.name) {
-              grouped[category].push({
-                name: item.name,
-                level: item.level,
-              });
-            } else if (typeof item === 'string') {
-              grouped[category].push({ name: item });
-            }
+      contentArr.forEach((item: any) => {
+        if (item && typeof item === 'object' && item.name) {
+          grouped[category].push({
+            name: item.name,
+            level: item.level,
           });
+        } else if (typeof item === 'string') {
+          grouped[category].push({ name: item });
         }
-      }
+      });
     });
 
-    return Object.keys(grouped)
+    this.skillsGrouped = Object.keys(grouped)
       .sort()
       .map((category) => ({
         name: category,

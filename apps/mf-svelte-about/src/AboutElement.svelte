@@ -1,142 +1,121 @@
-<script lang="ts">
+<script>
   import { onMount } from 'svelte';
-  import { createClient, SupabaseClient } from '@supabase/supabase-js';
+  import { createClient } from '@supabase/supabase-js';
 
-  export let locale: string = 'en';
-  export let supabaseUrl: string = '';
-  export let supabaseAnon: string = '';
+  export let locale = 'en';
 
-  let profile: any = null;
-  let experiences: any[] = [];
-  let skills: any[] = [];
   let loading = true;
-  let error: string | null = null;
-  let supabase: SupabaseClient | null = null;
+  let error = null;
+  let profile = null;
+  let experiences = [];
+  let skills = [];
 
-  const validLocale = locale === 'tr' ? 'tr' : 'en';
+  // Helper functions
+  function pickLocale(obj, loc = locale, fallback = 'en') {
+    if (!obj) return '';
+    if (typeof obj === 'string') return obj;
+    return obj[loc] ?? obj[fallback] ?? '';
+  }
 
-  onMount(async () => {
-    console.info('[MF] Svelte About mounted');
+  function pickArray(obj, loc = locale, fallback = 'en') {
+    if (Array.isArray(obj)) return obj;
+    if (!obj) return [];
+    return obj[loc] ?? obj[fallback] ?? [];
+  }
+
+  function getPeriodText(period) {
+    if (!period) return '';
+    if (typeof period === 'string') return period;
     
-    const url = supabaseUrl || (window as any).__SUPABASE_URL__ || '';
-    const anon = supabaseAnon || (window as any).__SUPABASE_ANON_KEY__ || '';
-
-    if (!url || !anon) {
-      error = 'Missing Supabase configuration';
-      loading = false;
-      return;
-    }
-
-    supabase = createClient(url, anon);
-    await loadData();
-  });
-
-  async function loadData() {
-    if (!supabase) return;
-
-    try {
-      const [profileRes, experiencesRes, skillsRes] = await Promise.all([
-        supabase.from('profile').select('*').single(),
-        supabase.from('experiences').select('*').order('order_index', { ascending: true }),
-        supabase.from('skills').select('*').order('category', { ascending: true }).order('order_index', { ascending: true }),
-      ]);
-
-      if (profileRes.error) {
-        error = 'Error loading profile data';
-        loading = false;
-        return;
-      }
-
-      profile = profileRes.data;
-      experiences = experiencesRes.data || [];
-      skills = skillsRes.data || [];
-      loading = false;
-    } catch (err) {
-      error = 'Failed to load data';
-      loading = false;
-    }
-  }
-
-  function getTitle(): string {
-    return profile?.title?.[validLocale] || profile?.title?.en || '';
-  }
-
-  function getSummary(): string {
-    return profile?.summary?.[validLocale] || profile?.summary?.en || '';
-  }
-
-  function getLocation(): string {
-    return profile?.location?.[validLocale] || profile?.location?.en || '';
-  }
-
-  function getRole(exp: any): string {
-    return exp.role?.[validLocale] || exp.role?.en || '';
-  }
-
-  function getExpLocation(exp: any): string {
-    return exp.location?.[validLocale] || exp.location?.en || '';
-  }
-
-  function getPeriod(exp: any): string {
-    const start = exp.period?.start || '';
-    let end = '';
-    if (typeof exp.period?.end === 'string') {
-      end = exp.period.end;
-    } else if (exp.period?.end) {
-      end = exp.period.end[validLocale] || exp.period.end.en;
-    } else {
-      end = validLocale === 'en' ? 'Present' : 'Mevcut Durum';
-    }
-    return `${start} – ${end}`;
-  }
-
-  function getBullets(exp: any): string[] {
-    return exp.bullets?.[validLocale] || exp.bullets?.en || [];
-  }
-
-  function getGroupedSkills(): Array<{ name: string; items: Array<{ name: string; level?: string }> }> {
-    const grouped: Record<string, Array<{ name: string; level?: string }>> = {};
+    const start = period.start || '';
+    const end = pickLocale(period.end) || period.end || (locale === 'tr' ? 'Mevcut' : 'Present');
     
-    skills.forEach((skill) => {
+    return start && end ? `${start} – ${end}` : start || end;
+  }
+
+  // Normalized data
+  let profileTitle = '';
+  let profileSummary = '';
+  let profileLocation = '';
+  let experiencesNormalized = [];
+  let skillsGrouped = [];
+
+  function normalizeData() {
+    profileTitle = pickLocale(profile?.title);
+    profileSummary = pickLocale(profile?.summary);
+    profileLocation = pickLocale(profile?.location);
+
+    experiencesNormalized = experiences.map(e => ({
+      ...e,
+      roleText: pickLocale(e.role),
+      locationText: pickLocale(e.location),
+      periodText: getPeriodText(e.period),
+      bulletsText: pickArray(e.bullets),
+    }));
+
+    const grouped = {};
+    skills.forEach(skill => {
       const category = skill.category || 'Other';
       if (!grouped[category]) {
         grouped[category] = [];
       }
 
-      // Parse content JSONB - can be either:
-      // 1. Direct array: [{name, level}]
-      // 2. Locale-keyed object: {en: [{name, level}], tr: [{name, level}]}
-      if (skill.content) {
-        let items: any[] = [];
+      const contentArr = Array.isArray(skill.content) 
+        ? skill.content 
+        : pickArray(skill.content);
 
-        if (Array.isArray(skill.content)) {
-          items = skill.content;
-        } else if (typeof skill.content === 'object') {
-          items = skill.content[validLocale] || skill.content.en || skill.content.tr || [];
-        }
-
-        if (Array.isArray(items)) {
-          items.forEach((item: any) => {
-            if (item && typeof item === 'object' && item.name) {
-              grouped[category].push({
-                name: item.name,
-                level: item.level,
-              });
-            } else if (typeof item === 'string') {
-              grouped[category].push({ name: item });
-            }
+      contentArr.forEach(item => {
+        if (item && typeof item === 'object' && item.name) {
+          grouped[category].push({
+            name: item.name,
+            level: item.level,
           });
+        } else if (typeof item === 'string') {
+          grouped[category].push({ name: item });
         }
-      }
+      });
     });
 
-    return Object.keys(grouped)
+    skillsGrouped = Object.keys(grouped)
       .sort()
-      .map((category) => ({
+      .map(category => ({
         name: category,
         items: grouped[category],
       }));
   }
+
+  onMounted(async () => {
+    console.info('[MF] Svelte About mounted');
+    
+    try {
+      const url = window.__SUPABASE_URL__;
+      const key = window.__SUPABASE_ANON_KEY__;
+      
+      if (!url || !key) {
+        throw new Error('Supabase config missing on window globals');
+      }
+
+      const supabase = createClient(url, key);
+
+      const [profileRes, expsRes, skillsRes] = await Promise.all([
+        supabase.from('profile').select('*').single(),
+        supabase.from('experiences').select('*').order('order_index', { ascending: true }),
+        supabase.from('skills').select('*').order('order_index', { ascending: true }),
+      ]);
+
+      if (profileRes.error) throw profileRes.error;
+
+      profile = profileRes.data;
+      experiences = expsRes.data || [];
+      skills = skillsRes.data || [];
+      
+      normalizeData();
+      loading = false;
+    } catch (e) {
+      error = e?.message ?? String(e);
+      loading = false;
+    }
+  });
 </script>
 
 <div class="max-w-4xl mx-auto px-6 py-12">
@@ -168,36 +147,36 @@
           {profile.name}
         </h1>
         <p class="text-xl text-gray-600 mb-6">
-          {getTitle()}
+          {profileTitle}
         </p>
       </div>
       <div class="max-w-3xl">
         <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-          {getSummary()}
+          {profileSummary}
         </p>
       </div>
       <div class="pt-2">
-        <p class="text-sm text-gray-500">{getLocation()}</p>
+        <p class="text-sm text-gray-500">{profileLocation}</p>
       </div>
     </div>
 
-    {#if experiences && experiences.length > 0}
+    {#if experiencesNormalized && experiencesNormalized.length > 0}
       <div class="mt-12 pt-8 border-t border-gray-200">
         <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
-          {validLocale === 'tr' ? 'Deneyim' : 'Experience'}
+          {locale === 'tr' ? 'Deneyim' : 'Experience'}
         </h2>
         <div class="space-y-10">
-          {#each experiences as exp (exp.id || exp)}
+          {#each experiencesNormalized as exp (exp.id || exp)}
             <div class="space-y-4">
               <div>
                 <h3 class="text-xl font-bold text-gray-900">{exp.company}</h3>
-                <p class="text-lg text-gray-700 mt-1">{getRole(exp)}</p>
-                <p class="text-sm text-gray-500 mt-1">{getExpLocation(exp)}</p>
-                <p class="text-sm text-gray-500 mt-1">{getPeriod(exp)}</p>
+                <p class="text-lg text-gray-700 mt-1">{exp.roleText}</p>
+                <p class="text-sm text-gray-500 mt-1">{exp.locationText}</p>
+                <p class="text-sm text-gray-500 mt-1">{exp.periodText}</p>
               </div>
-              {#if getBullets(exp).length > 0}
+              {#if exp.bulletsText && exp.bulletsText.length > 0}
                 <ul class="ml-4 space-y-2 mt-4">
-                  {#each getBullets(exp) as bullet}
+                  {#each exp.bulletsText as bullet}
                     <li class="text-gray-700 flex items-start">
                       <span class="text-teal-500 mr-2">•</span>
                       <span>{bullet}</span>
@@ -220,13 +199,13 @@
       </div>
     {/if}
 
-    {#if skills && skills.length > 0}
+    {#if skillsGrouped && skillsGrouped.length > 0}
       <div class="mt-12 pt-8 border-t border-gray-200">
         <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
-          {validLocale === 'tr' ? 'Yetenekler' : 'Skills'}
+          {locale === 'tr' ? 'Yetenekler' : 'Skills'}
         </h2>
         <div class="space-y-8">
-          {#each getGroupedSkills() as category}
+          {#each skillsGrouped as category}
             <div class="space-y-4">
               <h3 class="text-xl font-semibold text-gray-800 border-b border-gray-200 pb-2">
                 {category.name}
@@ -249,15 +228,15 @@
       </div>
     {/if}
 
-    {#if !experiences || experiences.length === 0}
+    {#if !experiencesNormalized || experiencesNormalized.length === 0}
       <div class="mt-12 pt-8 border-t border-gray-200">
-        <p class="text-center text-gray-500">No experience data found</p>
+        <p class="text-center text-gray-500">{locale === 'tr' ? 'Deneyim verisi bulunamadı' : 'No experience data found'}</p>
       </div>
     {/if}
 
-    {#if !skills || skills.length === 0}
+    {#if !skillsGrouped || skillsGrouped.length === 0}
       <div class="mt-12 pt-8 border-t border-gray-200">
-        <p class="text-center text-gray-500">No skills data found</p>
+        <p class="text-center text-gray-500">{locale === 'tr' ? 'Yetenek verisi bulunamadı' : 'No skills data found'}</p>
       </div>
     {/if}
   {/if}
