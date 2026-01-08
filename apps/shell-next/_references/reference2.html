@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Me - Senior Frontend Engineer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0f172a", // Slate 900 - Dark and professional
+                        "primary-light": "#334155", // Slate 700
+                        "background-light": "#ffffff",
+                        "background-dark": "#0f172a",
+                        "surface-light": "#f8fafc",
+                        "surface-dark": "#1e293b",
+                        "text-light": "#334155",
+                        "text-dark": "#e2e8f0",
+                        "accent": "#3b82f6", // Blue for links/highlights
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.375rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>.drawer-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .drawer-content::-webkit-scrollbar-track {
+            background: #1e293b; 
+        }
+        .drawer-content::-webkit-scrollbar-thumb {
+            background: #475569; 
+            border-radius: 4px;
+        }
+        .drawer-content::-webkit-scrollbar-thumb:hover {
+            background: #64748b; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans transition-colors duration-300 antialiased min-h-screen flex flex-col">
+<nav class="fixed top-0 w-full z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center space-x-3">
+<img alt="Personal Logo" class="h-8 w-8 rounded-sm object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCieRORIoljapjJOW6EH_yt7QoOd98lLK3mWOjnSkoh3PDIAu8HgjS3kiJ7mbGgpH_oXhRunfB5Z82euIxscSHfNsXaLLdn0VC1jxFuHAZav50UTEmlrPXIeh2HLCLbp9-oDS-1monNbFQ7XQDatcYMvY2w0cYYDf7sgz7b6CDd_uxQZPjLQC0ySt1rV29R2Zp_pOTpRf55W5x9jT2KAiXNKjuvb_b1MVqYXjdbMyWQOePhMEk0xSEgaLBGySEN2tpfWvS-9gpysw"/>
+<span class="font-bold text-lg text-gray-900 dark:text-white tracking-tight">Alex Dev.</span>
+</div>
+<div class="hidden md:flex space-x-8">
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white px-3 py-2 text-sm font-medium transition-colors" href="#">Projects</a>
+<a class="text-primary dark:text-white px-3 py-2 text-sm font-medium border-b-2 border-primary dark:border-white" href="#">About</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white px-3 py-2 text-sm font-medium transition-colors" href="#">Stack</a>
+<a class="text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white px-3 py-2 text-sm font-medium transition-colors" href="#">Contact</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 transition-colors" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-icons-outlined text-xl">dark_mode</span>
+</button>
+<button class="hidden sm:flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-full text-xs font-mono border border-gray-200 dark:border-gray-700 transition-all" onclick="toggleDrawer()">
+<span class="material-icons-outlined text-sm">code</span>
+<span>View Source</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="flex-grow pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+<div class="max-w-4xl mx-auto">
+<div class="flex justify-center mb-8">
+<div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 text-blue-600 dark:text-blue-400 text-xs font-medium">
+<svg class="w-4 h-4 animate-spin-slow" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" stroke-width="1.5" transform="rotate(0 12 12)"></ellipse>
+<ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" stroke-width="1.5" transform="rotate(60 12 12)"></ellipse>
+<ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" stroke-width="1.5" transform="rotate(120 12 12)"></ellipse>
+<circle cx="12" cy="12" fill="currentColor" r="1.5"></circle>
+</svg>
+<span>This page is implemented using React</span>
+</div>
+</div>
+<div class="text-center mb-16">
+<h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+                    Crafting digital experiences with <br class="hidden sm:block"/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">precision &amp; purpose.</span>
+</h1>
+<p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                    Senior Frontend Engineer specialized in scalable architecture, performance optimization, and creating accessible, pixel-perfect user interfaces.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
+<div class="md:col-span-4 space-y-6">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700">
+<img alt="Portrait of the engineer" class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaO6uYajXerVF0c1G0HD7lakYSX9s1r9EZPmtEn7RGKucTw-beq0LZ3OmKEkvgh_CiRV2ipyoCj1mdD9YScOWAcX605yJN_Bk9x9lD-731wAJZk-YV_89JA87UtFAy7YlOpDqoQZ-R0PJnUvvveJETDOsLnBZhPo8vPiZQLUCFKsheJKsaiFaO5Z-nINKsoyqPNWVbygKveyu1XupTmw4QsO8gDuuvBYmPGfwLAUcwgXr8X4XUMIQ08YVVsPqU-UBWJHWoEGX6aw"/>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+<h3 class="font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+<span class="material-icons-outlined mr-2 text-gray-400">bolt</span>
+                            Quick Stats
+                        </h3>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-sm mb-1">
+<span class="text-gray-500 dark:text-gray-400">Experience</span>
+<span class="font-medium text-gray-900 dark:text-white">8+ Years</span>
+</div>
+<div class="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 w-full rounded-full"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-1">
+<span class="text-gray-500 dark:text-gray-400">Current Focus</span>
+<span class="font-medium text-gray-900 dark:text-white">React Server Components</span>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-1">
+<span class="text-gray-500 dark:text-gray-400">Location</span>
+<span class="font-medium text-gray-900 dark:text-white">San Francisco, CA</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-8 space-y-8">
+<section>
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Background</h2>
+<div class="prose dark:prose-invert text-gray-600 dark:text-gray-400 leading-relaxed">
+<p class="mb-4">
+                                I started my journey manipulating pixels in Photoshop before realizing the real magic happened in the browser. Over the last decade, I've evolved from building simple static sites to architecting complex enterprise-grade web applications serving millions of users.
+                            </p>
+<p>
+                                Currently, I'm a Staff Frontend Engineer at <span class="text-gray-900 dark:text-white font-medium">TechCorp Inc.</span>, where I lead the Design Systems team. My philosophy is simple: technology should be invisible, and experiences should be intuitive. I spend my days obsessing over bundle sizes, accessibility trees, and component APIs.
+                            </p>
+</div>
+</section>
+<section>
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Technical Arsenal</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+<div class="p-4 rounded-lg bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 transition-colors group">
+<div class="text-blue-500 mb-2">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">layers</span>
+</div>
+<h4 class="font-semibold text-gray-900 dark:text-white text-sm">Frontend Core</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">React, TypeScript, Next.js, Vue</p>
+</div>
+<div class="p-4 rounded-lg bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 hover:border-teal-400 dark:hover:border-teal-500 transition-colors group">
+<div class="text-teal-500 mb-2">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">palette</span>
+</div>
+<h4 class="font-semibold text-gray-900 dark:text-white text-sm">Styling</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Tailwind, CSS Modules, Styled Components</p>
+</div>
+<div class="p-4 rounded-lg bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 hover:border-purple-400 dark:hover:border-purple-500 transition-colors group">
+<div class="text-purple-500 mb-2">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">dns</span>
+</div>
+<h4 class="font-semibold text-gray-900 dark:text-white text-sm">State &amp; Data</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Redux Toolkit, TanStack Query, GraphQL</p>
+</div>
+<div class="p-4 rounded-lg bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 hover:border-orange-400 dark:hover:border-orange-500 transition-colors group">
+<div class="text-orange-500 mb-2">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">bug_report</span>
+</div>
+<h4 class="font-semibold text-gray-900 dark:text-white text-sm">Testing</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Jest, Cypress, Playwright, Vitest</p>
+</div>
+<div class="p-4 rounded-lg bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 hover:border-pink-400 dark:hover:border-pink-500 transition-colors group">
+<div class="text-pink-500 mb-2">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">build</span>
+</div>
+<h4 class="font-semibold text-gray-900 dark:text-white text-sm">Build Tools</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Vite, Webpack, Turborepo</p>
+</div>
+<div class="p-4 rounded-lg bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 hover:border-green-400 dark:hover:border-green-500 transition-colors group">
+<div class="text-green-500 mb-2">
+<span class="material-icons-outlined group-hover:scale-110 transition-transform">cloud</span>
+</div>
+<h4 class="font-semibold text-gray-900 dark:text-white text-sm">Infrastructure</h4>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-1">AWS, Vercel, Docker, CI/CD</p>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Career Timeline</h2>
+<div class="relative pl-8 border-l border-gray-200 dark:border-gray-700 space-y-8">
+<div class="relative">
+<div class="absolute -left-[37px] bg-blue-500 h-4 w-4 rounded-full border-4 border-white dark:border-background-dark"></div>
+<div class="mb-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Staff Frontend Engineer</h3>
+<span class="text-xs text-gray-500 dark:text-gray-400 font-mono">2021 — Present</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400">Leading frontend architecture and design systems.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[37px] bg-gray-300 dark:bg-gray-600 h-4 w-4 rounded-full border-4 border-white dark:border-background-dark"></div>
+<div class="mb-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Senior Frontend Developer</h3>
+<span class="text-xs text-gray-500 dark:text-gray-400 font-mono">2018 — 2021</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400">Built high-performance dashboards for fintech clients.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[37px] bg-gray-300 dark:bg-gray-600 h-4 w-4 rounded-full border-4 border-white dark:border-background-dark"></div>
+<div class="mb-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
+<h3 class="text-lg font-semibold text-gray-900 dark:text-white">Full Stack Developer</h3>
+<span class="text-xs text-gray-500 dark:text-gray-400 font-mono">2015 — 2018</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400">Developed e-commerce solutions using MERN stack.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+<footer class="border-t border-gray-200 dark:border-gray-800 bg-surface-light dark:bg-surface-dark py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+<div class="mb-4 md:mb-0">
+<span class="text-sm text-gray-500 dark:text-gray-400">© 2023 Alex Dev. All rights reserved.</span>
+</div>
+<div class="flex space-x-6">
+<a class="text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors" href="#">
+<span class="sr-only">GitHub</span>
+<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="text-gray-400 hover:text-blue-500 transition-colors" href="#">
+<span class="sr-only">Twitter</span>
+<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+<a class="text-gray-400 hover:text-blue-700 transition-colors" href="#">
+<span class="sr-only">LinkedIn</span>
+<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+</div>
+</footer>
+<div class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300" id="codeDrawerOverlay" onclick="toggleDrawer()"></div>
+<div class="fixed top-0 right-0 h-full w-full sm:w-[500px] bg-[#1e1e1e] text-gray-300 z-50 transform translate-x-full transition-transform duration-300 shadow-2xl flex flex-col border-l border-gray-700 font-mono text-sm" id="codeDrawer">
+<div class="flex items-center justify-between p-4 border-b border-gray-700 bg-[#252526]">
+<div class="flex items-center space-x-2">
+<span class="text-blue-400 material-icons-outlined text-base">code</span>
+<span class="text-white font-medium">AboutPage.tsx</span>
+</div>
+<button class="text-gray-400 hover:text-white transition-colors" onclick="toggleDrawer()">
+<span class="material-icons-outlined">close</span>
+</button>
+</div>
+<div class="flex-grow overflow-y-auto drawer-content p-4">
+<pre class="font-mono text-xs sm:text-sm leading-relaxed"><span class="text-purple-400">import</span> React, { useState, useEffect } <span class="text-purple-400">from</span> <span class="text-green-300">'react'</span>;
+<span class="text-purple-400">import</span> { motion } <span class="text-purple-400">from</span> <span class="text-green-300">'framer-motion'</span>;
+<span class="text-purple-400">import</span> { Code, User, Terminal } <span class="text-purple-400">from</span> <span class="text-green-300">'lucide-react'</span>;
+<span class="text-gray-500">// Component interfaces</span>
+<span class="text-blue-400">interface</span> <span class="text-yellow-300">AboutPageProps</span> {
+  theme: <span class="text-green-300">'light'</span> | <span class="text-green-300">'dark'</span>;
+}
+<span class="text-gray-500"></span>
+<span class="text-blue-400">export const</span> <span class="text-yellow-300">AboutPage</span>: <span class="text-yellow-300">FC</span>&lt;<span class="text-yellow-300">AboutPageProps</span>&gt; = ({ theme }) =&gt; {
+  <span class="text-blue-400">const</span> [isDrawerOpen, setDrawerOpen] = <span class="text-yellow-300">useState</span>(<span class="text-blue-400">false</span>);
+  <span class="text-gray-500">// Simulating data fetch</span>
+  <span class="text-blue-400">const</span> stats = <span class="text-yellow-300">useStats</span>();
+  <span class="text-purple-400">return</span> (
+    &lt;<span class="text-blue-300">Layout</span> className=<span class="text-green-300">"min-h-screen bg-surface-50"</span>&gt;
+      &lt;<span class="text-blue-300">Header</span> 
+        title=<span class="text-green-300">"Crafting digital experiences"</span>
+        subtitle=<span class="text-green-300">"Precision &amp; purpose"</span>
+      /&gt;
+      &lt;<span class="text-blue-300">main</span> className=<span class="text-green-300">"grid grid-cols-12 gap-8"</span>&gt;
+        {}
+        &lt;<span class="text-blue-300">div</span> className=<span class="text-green-300">"col-span-4"</span>&gt;
+          &lt;<span class="text-blue-300">ProfileCard</span> 
+             image=<span class="text-green-300">"/assets/profile-v2.jpg"</span>
+             status=<span class="text-green-300">"Open to work"</span>
+          /&gt;
+          &lt;<span class="text-blue-300">QuickStats</span> data={stats} /&gt;
+        &lt;/<span class="text-blue-300">div</span>&gt;
+        {}
+        &lt;<span class="text-blue-300">div</span> className=<span class="text-green-300">"col-span-8 space-y-8"</span>&gt;
+           &lt;<span class="text-blue-300">Badge</span> variant=<span class="text-green-300">"info"</span>&gt;
+              This page is implemented using React
+           &lt;/<span class="text-blue-300">Badge</span>&gt;
+           &lt;<span class="text-blue-300">Biography</span> /&gt;
+           &lt;<span class="text-blue-300">TechStackGrid</span> items={SKILLS} /&gt;
+        &lt;/<span class="text-blue-300">div</span>&gt;
+      &lt;/<span class="text-blue-300">main</span>&gt;
+      &lt;<span class="text-blue-300">SourceDrawer</span> 
+        isOpen={isDrawerOpen} 
+        onClose={() =&gt; setDrawerOpen(<span class="text-blue-400">false</span>)} 
+      /&gt;
+    &lt;/<span class="text-blue-300">Layout</span>&gt;
+  );
+};
+            </pre>
+</div>
+<div class="p-4 border-t border-gray-700 bg-[#252526] text-xs text-gray-500">
+            Read-only mode • TypeScript React
+        </div>
+</div>
+<script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('codeDrawer');
+            const overlay = document.getElementById('codeDrawerOverlay');
+            if (drawer.classList.contains('translate-x-full')) {
+                // Open
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                // slight delay to allow display:block to apply before opacity transition
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                }, 10);
+            } else {
+                // Close
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+    </script>
+
+</body></html>

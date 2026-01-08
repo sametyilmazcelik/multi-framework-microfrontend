@@ -1,0 +1,22 @@
+{
+  "name": "@repo/mf-vue",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/mf-vue-about.js",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch"
+  },
+  "dependencies": {
+    "vue": "^3.4.0",
+    "@supabase/supabase-js": "^2.38.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "typescript": "^5.2.0",
+    "vite": "^5.0.0"
+  }
+}
+
+

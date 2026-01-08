@@ -1,0 +1,20 @@
+{
+  "name": "sametyc",
+  "version": "0.0.1",
+  "private": true,
+  "packageManager": "pnpm@10.0.0",
+  "scripts": {
+    "build:mf": "pnpm --filter mf-angular-about build && pnpm --filter mf-svelte-about build && pnpm --filter mf-vue-about build && node scripts/copy-mf.js",
+    "dev:mf": "concurrently \"pnpm --filter mf-angular-about dev\" \"pnpm --filter mf-svelte-about dev\" \"pnpm --filter mf-vue-about dev\"",
+    "dev": "pnpm --filter shell-next dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "typescript": "5.4.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "typescript": "5.4.5"
+    }
+  }
+}

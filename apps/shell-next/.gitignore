@@ -1,0 +1,6 @@
+# See root .gitignore for shared ignores
+# Next.js specific
+.next
+out
+
+

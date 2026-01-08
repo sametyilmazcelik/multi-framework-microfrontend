@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
+.pnpm-store/
 .pnp
 .pnp.js
 
@@ -19,6 +20,10 @@ out/
 .turbo/
 dist/
 build/
+
+# Microfrontend build outputs
+apps/mf-*/dist/
+apps/shell-next/public/mf/
 
 # Production builds
 *.tsbuildinfo
@@ -68,4 +73,5 @@ supabase/.temp
 # Misc
 *.log
 .cache/
+
 
