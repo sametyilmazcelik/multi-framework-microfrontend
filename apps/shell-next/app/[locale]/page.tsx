@@ -1,6 +1,7 @@
 import { supabase } from '@repo/supabase-client';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
+import Image from 'next/image';
 
 interface PageProps {
   params: {
@@ -35,14 +36,24 @@ export default async function HomePage({ params }: PageProps) {
           {/* Profile Image with Glow */}
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-accent to-glow-secondary rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-xl glass border border-border shadow-xl">
-              <div className="w-full h-full bg-gradient-to-br from-accent/20 to-glow-secondary/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-32 h-32 rounded-full bg-accent/20 mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-6xl font-bold text-accent">SY</span>
-                  </div>
-                  <h2 className="text-white text-2xl font-bold">Samet Yılmazçelik</h2>
-                  <p className="text-text-secondary text-sm mt-2">{title}</p>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-xl glass border border-border shadow-2xl group">
+              {/* Background Image */}
+              <Image
+                src="/assets/profile.jpg"
+                alt="Samet Yılmazçelik"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                priority
+              />
+
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
+
+              {/* Content Overlay */}
+              <div className="absolute inset-0 flex flex-col justify-end p-6 text-center">
+                <div className="relative z-10">
+                  <h2 className="text-white text-3xl font-bold mb-1">Samet Yılmazçelik</h2>
+                  <p className="text-accent font-medium text-lg">{title}</p>
                 </div>
               </div>
             </div>

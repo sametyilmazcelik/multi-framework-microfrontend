@@ -3,6 +3,8 @@ import { getExperiences } from '@/lib/data/getExperiences';
 import { getProjects } from '@/lib/data/getProjects';
 import { getSkills } from '@/lib/data/getSkills';
 import { getEducation } from '@/lib/data/getEducation';
+import Image from 'next/image';
+import PrintButton from '@/components/ui/PrintButton';
 
 interface PageProps {
   params: {
@@ -25,14 +27,17 @@ export default async function ResumePage({ params }: PageProps) {
   ]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 resume-container">
       {/* Header */}
-      <div className="mb-16">
-        <div className="flex items-center gap-2 mb-6">
-          <span className="w-1 h-8 bg-accent rounded-full"></span>
-          <h1 className="text-text-primary">
-            {isEn ? 'Resume' : 'Özgeçmiş'}
-          </h1>
+      <div className="mb-16 resume-header">
+        <div className="flex items-center gap-2 mb-6 justify-between">
+          <div className="flex items-center gap-2">
+            <span className="w-1 h-8 bg-accent rounded-full"></span>
+            <h1 className="text-text-primary">
+              {isEn ? 'Resume' : 'Özgeçmiş'}
+            </h1>
+          </div>
+          <PrintButton label={isEn ? 'Download PDF' : 'PDF İndir'} />
         </div>
         <p className="text-xl text-text-secondary max-w-2xl">
           {isEn ? 'Professional experience and technical expertise' : 'Profesyonel deneyim ve teknik uzmanlık'}
@@ -41,26 +46,39 @@ export default async function ResumePage({ params }: PageProps) {
 
       {/* Profile Summary */}
       {profile && (
-        <div className="card mb-16">
-          <h2 className="text-2xl font-bold text-text-primary mb-2">
-            {profile.name}
-          </h2>
-          {profile.title && (
-            <p className="text-lg text-accent mb-4">
-              {profile.title}
-            </p>
-          )}
-          {profile.summary && (
-            <p className="text-base text-text-secondary leading-relaxed">
-              {profile.summary}
-            </p>
-          )}
+        <div className="card mb-16 flex flex-col md:flex-row items-center md:items-start gap-8 resume-profile">
+          <div className="flex-shrink-0">
+            <div className="w-32 h-32 relative rounded-full overflow-hidden border-2 border-accent/20 shadow-lg profile-image-container">
+              <Image
+                src="/assets/profile.jpg"
+                alt={profile.name}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+          <div className="flex-1 text-center md:text-left">
+            <h2 className="text-2xl font-bold text-text-primary mb-2">
+              {profile.name}
+            </h2>
+            {profile.title && (
+              <p className="text-lg text-accent mb-4">
+                {profile.title}
+              </p>
+            )}
+            {profile.summary && (
+              <p className="text-base text-text-secondary leading-relaxed">
+                {profile.summary}
+              </p>
+            )}
+          </div>
         </div>
       )}
 
       {/* Experiences */}
       {experiences && experiences.length > 0 && (
-        <div className="mb-16">
+        <div className="mb-16 resume-experience">
           <h2 className="text-2xl font-bold text-text-primary mb-8 flex items-center gap-2">
             <span className="w-1 h-6 bg-accent rounded-full"></span>
             {isEn ? 'Experience' : 'Deneyim'}
@@ -106,7 +124,7 @@ export default async function ResumePage({ params }: PageProps) {
 
       {/* Skills */}
       {skillCategories && skillCategories.length > 0 && (
-        <div className="mb-16">
+        <div className="mb-16 resume-skills">
           <h2 className="text-2xl font-bold text-text-primary mb-8 flex items-center gap-2">
             <span className="w-1 h-6 bg-accent rounded-full"></span>
             {isEn ? 'Skills' : 'Yetenekler'}
@@ -134,7 +152,7 @@ export default async function ResumePage({ params }: PageProps) {
 
       {/* Projects */}
       {projects && projects.length > 0 && (
-        <div className="mb-16">
+        <div className="mb-16 resume-projects">
           <h2 className="text-2xl font-bold text-text-primary mb-8 flex items-center gap-2">
             <span className="w-1 h-6 bg-accent rounded-full"></span>
             {isEn ? 'Projects' : 'Projeler'}
@@ -172,7 +190,7 @@ export default async function ResumePage({ params }: PageProps) {
 
       {/* Education */}
       {education && education.length > 0 && (
-        <div>
+        <div className="resume-education">
           <h2 className="text-2xl font-bold text-text-primary mb-8 flex items-center gap-2">
             <span className="w-1 h-6 bg-accent rounded-full"></span>
             {isEn ? 'Education' : 'Eğitim'}

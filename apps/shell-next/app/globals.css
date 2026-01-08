@@ -350,3 +350,242 @@
     animation: glow-pulse 2s ease-in-out infinite;
   }
 }
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
+  body {
+    background: white;
+    font-family: 'Inter', sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    width: 210mm;
+    min-height: 297mm;
+    /* Ensure at least one page */
+    height: auto !important;
+    /* Allow growing */
+    overflow: visible !important;
+    /* Allow page breaks */
+    font-size: 11px;
+    /* Slightly larger base */
+  }
+
+  /* Hide navigation, print button, other UI */
+  .resume-header,
+  nav,
+  button {
+    display: none !important;
+  }
+
+  /* MAIN GRID CONTAINER */
+  /* To support multi-page print with a background sidebar is tricky. 
+     We will use a linear-gradient on the body to simulate the sidebar background 
+     across ALL pages. */
+  .resume-container {
+    display: grid !important;
+    grid-template-columns: 32% 68% !important;
+    grid-template-rows: auto 1fr !important;
+    /* Allow expansion */
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Simulate Sidebar Background on the Body to cover full height of all pages */
+  body {
+    background: linear-gradient(to right, #1e293b 32%, white 32%) !important;
+  }
+
+  /* SIDEBAR CONTENT */
+  .resume-profile,
+  .resume-skills,
+  .resume-education {
+    grid-column: 1 !important;
+    background: transparent !important;
+    /* Removed bg since body handles it */
+    color: white !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    margin: 0 !important;
+  }
+
+  .resume-profile {
+    padding-top: 3rem !important;
+    padding-bottom: 2rem !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* High Contrast Text Fixes */
+  .resume-profile h2 {
+    color: white !important;
+    font-size: 20pt !important;
+    margin-top: 1rem !important;
+    font-weight: 800 !important;
+  }
+
+  .resume-profile p {
+    color: #cbd5e1 !important;
+    /* lighter slate for better contrast */
+    font-size: 10pt !important;
+  }
+
+  .resume-skills {
+    padding-top: 1rem !important;
+  }
+
+  .resume-skills h2,
+  .resume-education h2 {
+    color: #5eead4 !important;
+    /* teal-300 - brighter for print */
+    font-size: 14pt !important;
+    border-bottom: 1px solid #475569 !important;
+    padding-bottom: 0.5rem !important;
+    margin-bottom: 1rem !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .resume-skills .card-hover,
+  .resume-education .card-hover {
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin-bottom: 1rem !important;
+    break-inside: avoid;
+  }
+
+  .resume-skills h3 {
+    color: #f1f5f9 !important;
+    /* slate-100 */
+    font-size: 11pt !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 600 !important;
+  }
+
+  .resume-skills span {
+    background: #334155 !important;
+    border: 1px solid #475569 !important;
+    color: white !important;
+    font-size: 9pt !important;
+    padding: 3px 8px !important;
+    margin: 0 4px 4px 0 !important;
+    display: inline-block !important;
+  }
+
+  .resume-education h3 {
+    color: white !important;
+    font-size: 12pt !important;
+    font-weight: bold !important;
+  }
+
+  .resume-education p {
+    color: #cbd5e1 !important;
+    font-size: 10pt !important;
+  }
+
+  /* MAIN CONTENT (Right Column) */
+  .resume-experience,
+  .resume-projects {
+    grid-column: 2 !important;
+    background: transparent !important;
+    padding-left: 2.5rem !important;
+    padding-right: 2rem !important;
+    color: #0f172a !important;
+    /* slate-900 - Darkest for readability */
+  }
+
+  .resume-experience {
+    padding-top: 3rem !important;
+    break-after: auto;
+    /* Allow break after experience if needed */
+  }
+
+  .resume-experience h2,
+  .resume-projects h2 {
+    color: #0f172a !important;
+    font-size: 18pt !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    border-bottom: 3px solid #0d9488 !important;
+    /* teal-600 */
+    display: inline-block !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Experience Cards */
+  .resume-experience .card-hover {
+    break-inside: avoid;
+    /* Prevent splitting a job across pages */
+    margin-bottom: 2rem !important;
+  }
+
+  .resume-experience h3 {
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    color: black !important;
+  }
+
+  .resume-experience .text-text-muted {
+    color: #475569 !important;
+    /* slate-600 */
+    font-weight: 600 !important;
+  }
+
+  .resume-experience p {
+    color: #334155 !important;
+    /* slate-700 */
+    font-size: 10pt !important;
+    line-height: 1.5 !important;
+  }
+
+  .resume-experience ul li {
+    color: #334155 !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Projects */
+  .resume-projects {
+    padding-top: 1rem !important;
+  }
+
+  .resume-projects .grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .resume-projects .card-hover {
+    background: #f8fafc !important;
+    border: 1px solid #cbd5e1 !important;
+    padding: 1rem !important;
+    border-radius: 6px !important;
+    break-inside: avoid;
+  }
+
+  .resume-projects h3 {
+    font-size: 12pt !important;
+    color: #0f172a !important;
+    font-weight: bold !important;
+  }
+
+  .resume-projects p {
+    color: #475569 !important;
+    font-size: 9pt !important;
+    line-height: 1.4 !important;
+  }
+
+  /* Reset Education Position - Place it in Sidebar */
+  .resume-education {
+    margin-top: 0 !important;
+    padding-bottom: 3rem !important;
+  }
+}

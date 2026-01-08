@@ -2,9 +2,11 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import { useState } from 'react';
 import { SiGithub, SiLinkedin } from 'react-icons/si';
 import ThemeToggle from './ThemeToggle';
+import LocaleToggle from '../ui/LocaleToggle';
 
 interface NavLink {
   href: string;
@@ -44,8 +46,14 @@ export default function Navbar({ locale }: { locale: string }) {
             href={`/${locale}`}
             className="text-xl font-bold text-text-primary hover:text-accent transition-colors duration-200"
           >
-            <span className="hidden sm:inline">Samet Yılmazçelik</span>
-            <span className="sm:hidden">SY</span>
+            <Image
+              src="/assets/logo.png"
+              alt="Samet Yılmazçelik"
+              width={160}
+              height={40}
+              className="h-10 w-auto object-contain rounded-lg"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -90,6 +98,7 @@ export default function Navbar({ locale }: { locale: string }) {
               <SiLinkedin size={20} />
             </a>
             <ThemeToggle />
+            <LocaleToggle />
           </div>
 
           {/* Mobile menu button */}
@@ -125,6 +134,7 @@ export default function Navbar({ locale }: { locale: string }) {
               </Link>
             ))}
             <div className="flex items-center gap-4 pt-2">
+              <LocaleToggle />
               <a
                 href="https://github.com/sametyc"
                 target="_blank"
