@@ -17,12 +17,7 @@ jobs:
         with:
           node-version: 20
 
-            - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Enable Corepack + pnpm (from packageManager)
+      - name: Enable Corepack + pnpm 10
         run: |
           corepack enable
           corepack prepare pnpm@10.0.0 --activate
