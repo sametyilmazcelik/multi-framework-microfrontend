@@ -34,7 +34,7 @@ export default function AboutView({
       <AboutStats locale={validLocale} />
       
       {experiencesError ? (
-        <div className="mt-12 pt-8 border-t border-gray-200">
+        <div className="mt-12 pt-8 border-t border-neutral-200">
           <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
             <p className="text-red-600 mb-2">Error loading experience data</p>
             <pre className="text-xs text-red-700 overflow-auto">
@@ -50,7 +50,7 @@ export default function AboutView({
       )}
 
       {skillsError ? (
-        <div className="mt-12 pt-8 border-t border-gray-200">
+        <div className="mt-12 pt-8 border-t border-neutral-200">
           <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
             <p className="text-red-600 mb-2">Error loading skills data</p>
             <pre className="text-xs text-red-700 overflow-auto">

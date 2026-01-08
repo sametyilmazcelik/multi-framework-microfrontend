@@ -1,3 +1,5 @@
+import Card from '@/components/ui/Card';
+
 interface Experience {
   id?: string;
   company: string;
@@ -32,24 +34,23 @@ interface ExperienceTimelineProps {
 export default function ExperienceTimeline({ experiences, locale }: ExperienceTimelineProps) {
   if (experiences.length === 0) {
     return (
-      <div className="mt-12 pt-8 border-t border-gray-200">
-        <p className="text-gray-600 text-center">No experience found</p>
+      <div className="mt-12 pt-8 border-t border-neutral-200">
+        <p className="text-neutral-600 text-center">No experience found</p>
       </div>
     );
   }
 
   return (
-    <div className="mt-12 pt-8 border-t border-gray-200">
-      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
+    <div className="mt-12 pt-8 border-t border-neutral-200">
+      <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-8">
         {locale === 'en' ? 'Experience' : 'Deneyim'}
       </h2>
 
-      <div className="space-y-10">
+      <div className="grid gap-6 md:grid-cols-2">
         {experiences.map((exp, index) => {
           const role = exp.role[locale] || exp.role.en;
           const location = exp.location[locale] || exp.location.en;
           
-          // Handle period.end - can be string or localized object
           let periodEnd: string;
           if (typeof exp.period.end === 'string') {
             periodEnd = exp.period.end;
@@ -63,38 +64,54 @@ export default function ExperienceTimeline({ experiences, locale }: ExperienceTi
           const bullets = exp.bullets?.[locale] || exp.bullets?.en || [];
 
           return (
-            <div key={exp.id || index} className="space-y-4">
-              <div>
-                <h3 className="text-xl font-bold text-gray-900">{exp.company}</h3>
-                <p className="text-lg text-gray-700 mt-1">{role}</p>
-                <p className="text-sm text-gray-500 mt-1">{location}</p>
-                <p className="text-sm text-gray-500 mt-1">{periodText}</p>
-              </div>
-
-              {bullets.length > 0 && (
-                <ul className="ml-4 space-y-2 mt-4">
-                  {bullets.map((bullet, bulletIndex) => (
-                    <li key={bulletIndex} className="text-gray-700 flex items-start">
-                      <span className="text-teal-500 mr-2">•</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {exp.tech && exp.tech.length > 0 && (
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {exp.tech.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 border border-gray-200"
-                    >
-                      {tech}
+            <Card key={exp.id || index} className="hover:scale-[1.02] transition-transform duration-200">
+              <div className="space-y-4">
+                <div>
+                  <h3 className="text-xl font-bold text-neutral-900 mb-1">{exp.company}</h3>
+                  <p className="text-lg text-neutral-700 font-medium">{role}</p>
+                  <div className="flex items-center gap-3 mt-2 text-sm text-neutral-500">
+                    <span className="flex items-center gap-1">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                      </svg>
+                      {location}
                     </span>
-                  ))}
+                    <span className="flex items-center gap-1">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                      </svg>
+                      {periodText}
+                    </span>
+                  </div>
                 </div>
-              )}
-            </div>
+
+                {bullets.length > 0 && (
+                  <ul className="space-y-2 mt-4">
+                    {bullets.map((bullet, bulletIndex) => (
+                      <li key={bulletIndex} className="text-neutral-700 flex items-start gap-2">
+                        <span className="text-emerald-600 mt-1.5 flex-shrink-0">•</span>
+                        <span className="leading-relaxed">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {exp.tech && exp.tech.length > 0 && (
+                  <div className="mt-4 pt-4 border-t border-neutral-100 flex flex-wrap gap-2">
+                    {exp.tech.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-neutral-100 text-neutral-700 border border-neutral-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </Card>
           );
         })}
       </div>

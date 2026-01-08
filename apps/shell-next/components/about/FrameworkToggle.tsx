@@ -1,6 +1,7 @@
 'use client';
 
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { frameworkConfig } from './FrameworkIcons';
 
 type Framework = 'react' | 'angular' | 'svelte' | 'vue';
 
@@ -20,20 +21,22 @@ export default function FrameworkToggle() {
   };
 
   return (
-    <div className="mb-8 flex gap-2">
+    <div className="mb-8 flex gap-2 flex-wrap">
       {frameworks.map((fw) => {
         const isActive = currentFramework === fw;
+        const config = frameworkConfig[fw];
         return (
           <button
             key={fw}
             onClick={() => handleClick(fw)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+            className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
               isActive
-                ? 'bg-teal-600 text-white'
-                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                ? `${config.activeBg} ${config.activeText}`
+                : `${config.inactiveBg} ${config.inactiveText} border ${config.inactiveBorder}`
             }`}
           >
-            {fw.charAt(0).toUpperCase() + fw.slice(1)}
+            <span className="w-4 h-4">{config.icon}</span>
+            {config.label}
           </button>
         );
       })}

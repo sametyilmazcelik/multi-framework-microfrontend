@@ -1,7 +1,16 @@
+import { frameworkConfig } from './FrameworkIcons';
+
 interface FrameworkBadgeProps {
   framework: 'React' | 'Vue' | 'Svelte' | 'Angular';
   locale: 'en' | 'tr';
 }
+
+const frameworkMap: Record<string, 'react' | 'angular' | 'svelte' | 'vue'> = {
+  React: 'react',
+  Angular: 'angular',
+  Svelte: 'svelte',
+  Vue: 'vue',
+};
 
 const badgeTexts = {
   en: {
@@ -20,10 +29,13 @@ const badgeTexts = {
 
 export default function FrameworkBadge({ framework, locale }: FrameworkBadgeProps) {
   const text = badgeTexts[locale][framework];
+  const fwKey = frameworkMap[framework];
+  const config = frameworkConfig[fwKey];
 
   return (
-    <div className="mb-8">
-      <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-teal-50 text-teal-700 border border-teal-200">
+    <div className="mb-6">
+      <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium ${config.badgeBg} ${config.badgeText} border ${config.badgeBorder}`}>
+        <span className="w-3 h-3">{config.icon}</span>
         {text}
       </span>
     </div>
