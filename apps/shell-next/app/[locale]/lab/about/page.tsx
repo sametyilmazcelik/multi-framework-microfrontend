@@ -80,6 +80,8 @@ export default async function LabAboutPage({ params, searchParams }: PageProps) 
             profile={profile}
             experiences={experiences}
             skills={skillCategories}
+            experiencesError={null}
+            skillsError={null}
           />
         ) : (
           <FrameworkHost framework={activeFramework} locale={locale} />
