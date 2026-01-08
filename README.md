@@ -1,81 +1,48 @@
 # Multi-Framework Microfrontend Demo
 
-A demonstration of microfrontend architecture using multiple frameworks within a Next.js shell application.
+Next.js shell içinde Angular, Svelte ve Vue microfrontend'lerini Web Component olarak çalıştıran bir demo proje.
 
-## Architecture
+## Ne Yapıyor?
 
-- **Shell**: Next.js App Router (React native)
-- **Microfrontends**: 
-  - React (native Next.js components)
-  - Angular (Web Component via `@angular/elements`)
-  - Svelte (Compiled Component)
-  - Vue (Web Component via `defineCustomElement`)
+- Next.js App Router shell uygulaması (React native)
+- Angular, Svelte, Vue microfrontend'ler Web Component olarak mount ediliyor
+- Her biri Supabase'den gerçek veri çekiyor (iframe yok, dummy data yok)
+- Framework değiştirmek için `?fw=angular|svelte|vue` query param kullanılıyor
 
-## Key Features
-
-- **No iframe, no dummy data**: Each microfrontend runs as a real Web Component in the DOM
-- **Shared Supabase backend**: All microfrontends fetch live data from the same Supabase database
-- **Independent mounting**: Each framework's custom element is mounted independently from the Next.js shell
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- pnpm 10+
-
-### Installation
+## Kurulum
 
 ```bash
 pnpm install
-```
-
-### Build Microfrontends
-
-```bash
 pnpm build:mf
-```
-
-This builds all microfrontend applications and copies their bundles to `apps/shell-next/public/mf/`.
-
-### Run Development Server
-
-```bash
 pnpm --filter shell-next dev
 ```
 
-## Usage
+## Kullanım
 
-Visit the following URLs to see different framework implementations:
-
-- `/en/about` - React (native Next.js)
+- `/en/about` - React (native)
 - `/en/about?fw=angular` - Angular Web Component
 - `/en/about?fw=svelte` - Svelte Compiled Component
 - `/en/about?fw=vue` - Vue Web Component
 
-## Project Structure
+## Yapı
 
 ```
-.
-├── apps/
-│   ├── shell-next/          # Next.js host application
-│   ├── mf-angular-about/     # Angular microfrontend
-│   ├── mf-svelte-about/      # Svelte microfrontend
-│   └── mf-vue-about/         # Vue microfrontend
-├── packages/
-│   └── supabase-client/      # Shared Supabase client
-└── scripts/
-    └── copy-mf.js            # Build script for copying MF bundles
+apps/
+  shell-next/          # Next.js host
+  mf-angular-about/    # Angular MF
+  mf-svelte-about/     # Svelte MF
+  mf-vue-about/        # Vue MF
+packages/
+  supabase-client/     # Shared Supabase client
+scripts/
+  copy-mf.js           # Build script
 ```
 
-## Environment Variables
+## Env
 
-Create `apps/shell-next/.env.local`:
+`apps/shell-next/.env.local` :
 
 ```
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
 ```
-
-These values are automatically passed to microfrontends via global window variables.
-
