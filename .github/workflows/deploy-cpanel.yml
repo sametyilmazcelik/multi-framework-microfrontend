@@ -17,11 +17,6 @@ jobs:
         with:
           node-version: 20
 
-            - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
       - name: Enable Corepack + pnpm (from packageManager)
         run: |
           corepack enable
@@ -30,6 +25,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+
+      - name: Build shared packages
+        run: pnpm -r --filter @repo/supabase-client build
 
       - name: Build microfrontends
         run: pnpm build:mf
