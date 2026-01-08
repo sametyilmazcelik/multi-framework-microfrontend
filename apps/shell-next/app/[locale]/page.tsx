@@ -28,107 +28,158 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div className="relative z-10">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-bold text-neutral-900 dark:text-white mb-6 tracking-tight">
-            Samet Yılmazçelik
-          </h1>
-          <p className="text-2xl md:text-3xl text-neutral-600 dark:text-neutral-300 mb-8 font-medium">
-            {title}
-          </p>
-          <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 max-w-2xl mx-auto mb-12 leading-relaxed">
-            {summary}
-          </p>
+      {/* Hero Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
+        {/* Left Column - Profile */}
+        <div className="lg:col-span-4 space-y-8">
+          {/* Profile Image with Glow */}
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-accent to-glow-secondary rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-xl glass border border-border shadow-xl">
+              <div className="w-full h-full bg-gradient-to-br from-accent/20 to-glow-secondary/20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-32 h-32 rounded-full bg-accent/20 mx-auto mb-4 flex items-center justify-center">
+                    <span className="text-6xl font-bold text-accent">SY</span>
+                  </div>
+                  <h2 className="text-white text-2xl font-bold">Samet Yılmazçelik</h2>
+                  <p className="text-text-secondary text-sm mt-2">{title}</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="card text-center">
+              <span className="block text-4xl font-bold text-text-primary mb-1">9+</span>
+              <span className="text-sm text-text-muted">{isEn ? 'Years Exp.' : 'Yıl Deneyim'}</span>
+            </div>
+            <div className="card text-center">
+              <span className="block text-4xl font-bold text-text-primary mb-1">20+</span>
+              <span className="text-sm text-text-muted">{isEn ? 'Projects' : 'Proje'}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column - Content */}
+        <div className="lg:col-span-8 space-y-10">
+          {/* Main Heading */}
+          <section>
+            <h1 className="text-text-primary mb-6 tracking-tight leading-tight">
+              {isEn ? 'Crafting digital experiences with ' : 'Dijital deneyimler yaratıyorum '}
+              <span className="text-gradient">
+                {isEn ? 'precision' : 'hassasiyet'}
+              </span>
+              {isEn ? ' and ' : ' ve '}
+              <span className="text-gradient-vertical">
+                {isEn ? 'passion' : 'tutku'}
+              </span>
+              {isEn ? '.' : ' ile.'}
+            </h1>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-xl text-text-secondary leading-relaxed">
+                {summary}
+              </p>
+            </div>
+          </section>
+
+          {/* Feature Cards */}
+          <section className="grid md:grid-cols-2 gap-6">
+            <div className="card-hover group">
+              <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent mb-4 group-hover:scale-110 transition-transform">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-text-primary mb-2">
+                {isEn ? 'Clean Architecture' : 'Temiz Mimari'}
+              </h3>
+              <p className="text-text-secondary text-sm leading-relaxed">
+                {isEn
+                  ? 'Code should be as beautiful as the UI it renders. Maintainable, testable, and documented.'
+                  : 'Kod, oluşturduğu arayüz kadar güzel olmalı. Sürdürülebilir, test edilebilir ve dokümante.'}
+              </p>
+            </div>
+
+            <div className="card-hover group">
+              <div className="h-10 w-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 mb-4 group-hover:scale-110 transition-transform">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-bold text-text-primary mb-2">
+                {isEn ? 'Performance First' : 'Performans Odaklı'}
+              </h3>
+              <p className="text-text-secondary text-sm leading-relaxed">
+                {isEn
+                  ? 'Every millisecond counts. Optimized bundles and efficient rendering for instant experiences.'
+                  : 'Her milisaniye önemli. Optimize edilmiş paketler ve verimli render ile anlık deneyimler.'}
+              </p>
+            </div>
+          </section>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-4">
             <Button href={`/${locale}/projects`} variant="primary">
               {isEn ? 'View Projects' : 'Projeleri Gör'}
             </Button>
-            <Button href={`/${locale}/contact`} variant="outline">
+            <Button href={`/${locale}/contact`} variant="secondary">
               {isEn ? 'Get in Touch' : 'İletişime Geç'}
             </Button>
-            <Button href="/cv.pdf" target="_blank" variant="secondary">
+            <Button href="/cv.pdf" target="_blank" variant="outline">
               {isEn ? 'Download CV' : 'CV İndir'}
             </Button>
           </div>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          <Card className="text-center hover:scale-[1.02] transition-transform duration-200">
-            <div className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-2">
-              9+
-            </div>
-            <div className="text-sm text-neutral-600 dark:text-neutral-400 font-medium">
-              {isEn ? 'Years Experience' : 'Yıl Deneyim'}
-            </div>
-          </Card>
-
-          <Card className="text-center hover:scale-[1.02] transition-transform duration-200">
-            <div className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-2">
-              20+
-            </div>
-            <div className="text-sm text-neutral-600 dark:text-neutral-400 font-medium">
-              {isEn ? 'Projects' : 'Proje'}
-            </div>
-          </Card>
-
-          <Card className="text-center hover:scale-[1.02] transition-transform duration-200">
-            <div className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-2 flex items-center justify-center">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-emerald-600 dark:text-emerald-400">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <div className="text-sm text-neutral-600 dark:text-neutral-400 font-medium">
-              {isEn ? 'Istanbul, Turkey' : 'İstanbul, Türkiye'}
-            </div>
-          </Card>
-        </div>
-
-        {projects && projects.length > 0 && (
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-8">
+      {/* Featured Projects */}
+      {projects && projects.length > 0 && (
+        <div className="animate-slide-up">
+          <div className="flex items-center gap-2 mb-8">
+            <span className="w-1 h-6 bg-accent rounded-full"></span>
+            <h2 className="text-text-primary">
               {isEn ? 'Featured Projects' : 'Öne Çıkan Projeler'}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects.map((project: any) => {
-                const name = project.name?.[locale] || project.name?.en || project.name || 'Untitled';
-                const description = project.description?.[locale] || project.description?.en || project.description || '';
-                
-                return (
-                  <Card key={project.id} className="hover:scale-[1.02] transition-transform duration-200">
-                    <h3 className="text-xl font-bold text-neutral-900 dark:text-white mb-2">
-                      {name}
-                    </h3>
-                    {description && (
-                      <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4 line-clamp-3">
-                        {description}
-                      </p>
-                    )}
-                    {project.tech && Array.isArray(project.tech) && project.tech.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.slice(0, 3).map((tech: string, idx: number) => (
-                          <span
-                            key={idx}
-                            className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </Card>
-                );
-              })}
-            </div>
-            <div className="text-center mt-8">
-              <Button href={`/${locale}/projects`} variant="outline">
-                {isEn ? 'View All Projects' : 'Tüm Projeleri Gör'}
-              </Button>
-            </div>
           </div>
-        )}
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project: any) => {
+              const name = project.name?.[locale] || project.name?.en || project.name || 'Untitled';
+              const description = project.description?.[locale] || project.description?.en || project.description || '';
+
+              return (
+                <div key={project.id} className="card-glow">
+                  <h3 className="text-xl font-bold text-text-primary mb-2">
+                    {name}
+                  </h3>
+                  {description && (
+                    <p className="text-sm text-text-secondary mb-4 line-clamp-3">
+                      {description}
+                    </p>
+                  )}
+                  {project.tech && Array.isArray(project.tech) && project.tech.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.slice(0, 3).map((tech: string, idx: number) => (
+                        <span
+                          key={idx}
+                          className="inline-flex items-center px-2 py-1 rounded-md text-xs font-mono glass text-text-secondary border border-border"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <div className="text-center mt-8">
+            <Button href={`/${locale}/projects`} variant="outline">
+              {isEn ? 'View All Projects' : 'Tüm Projeleri Gör'}
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -98,19 +98,36 @@
     const grouped: Record<string, Array<{ name: string; level?: string }>> = {};
     
     skills.forEach((skill) => {
-      if (!skill.content || typeof skill.content !== 'object') return;
-      const items = skill.content[validLocale] || skill.content.en || [];
-      if (!Array.isArray(items)) return;
-      
-      if (!grouped[skill.category]) {
-        grouped[skill.category] = [];
+      const category = skill.category || 'Other';
+      if (!grouped[category]) {
+        grouped[category] = [];
       }
-      items.forEach((item: any) => {
-        grouped[skill.category].push({
-          name: item.name,
-          level: item.level,
-        });
-      });
+
+      // Parse content JSONB - can be either:
+      // 1. Direct array: [{name, level}]
+      // 2. Locale-keyed object: {en: [{name, level}], tr: [{name, level}]}
+      if (skill.content) {
+        let items: any[] = [];
+
+        if (Array.isArray(skill.content)) {
+          items = skill.content;
+        } else if (typeof skill.content === 'object') {
+          items = skill.content[validLocale] || skill.content.en || skill.content.tr || [];
+        }
+
+        if (Array.isArray(items)) {
+          items.forEach((item: any) => {
+            if (item && typeof item === 'object' && item.name) {
+              grouped[category].push({
+                name: item.name,
+                level: item.level,
+              });
+            } else if (typeof item === 'string') {
+              grouped[category].push({ name: item });
+            }
+          });
+        }
+      }
     });
 
     return Object.keys(grouped)
@@ -231,6 +248,18 @@
         </div>
       </div>
     {/if}
+
+    {#if !experiences || experiences.length === 0}
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <p class="text-center text-gray-500">No experience data found</p>
+      </div>
+    {/if}
+
+    {#if !skills || skills.length === 0}
+      <div class="mt-12 pt-8 border-t border-gray-200">
+        <p class="text-center text-gray-500">No skills data found</p>
+      </div>
+    {/if}
   {/if}
 </div>
 
@@ -240,5 +269,3 @@
     font-family: system-ui, -apple-system, sans-serif;
   }
 </style>
-
-

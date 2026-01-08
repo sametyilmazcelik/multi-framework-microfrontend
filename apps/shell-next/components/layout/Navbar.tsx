@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { SiGithub, SiLinkedin } from 'react-icons/si';
+import ThemeToggle from './ThemeToggle';
 
 interface NavLink {
   href: string;
@@ -14,6 +15,7 @@ const navLinks: NavLink[] = [
   { href: '/', label: { en: 'Home', tr: 'Ana Sayfa' } },
   { href: '/projects', label: { en: 'Projects', tr: 'Projeler' } },
   { href: '/resume', label: { en: 'Resume', tr: 'Özgeçmiş' } },
+  { href: '/stack', label: { en: 'Stack', tr: 'Stack' } },
   { href: '/contact', label: { en: 'Contact', tr: 'İletişim' } },
   { href: '/lab/about', label: { en: 'Lab', tr: 'Lab' } },
 ];
@@ -27,39 +29,54 @@ export default function Navbar({ locale }: { locale: string }) {
     if (href === '/') {
       return pathname === `/${locale}` || pathname === `/${locale}/`;
     }
+    if (href === '/lab/about') {
+      return pathname?.includes('/lab');
+    }
     return pathname?.includes(href);
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
+    <nav className="sticky top-0 z-50 glass border-b border-border/50 animate-slide-down">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href={`/${locale}`} className="text-xl font-bold text-neutral-900 dark:text-white">
-            Samet Yılmazçelik
+          {/* Logo */}
+          <Link
+            href={`/${locale}`}
+            className="text-xl font-bold text-text-primary hover:text-accent transition-colors duration-200"
+          >
+            <span className="hidden sm:inline">Samet Yılmazçelik</span>
+            <span className="sm:hidden">SY</span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-6">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={`/${locale}${link.href}`}
-                className={`text-sm font-medium transition-colors ${
-                  isActive(link.href)
-                    ? 'text-neutral-900 dark:text-white'
-                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
-                }`}
+                className={`relative text-sm font-medium transition-all duration-200 group ${isActive(link.href)
+                  ? 'text-accent'
+                  : 'text-text-secondary hover:text-text-primary'
+                  }`}
               >
                 {link.label[isEn ? 'en' : 'tr']}
+                {/* Active indicator */}
+                <span
+                  className={`absolute -bottom-[21px] left-0 right-0 h-0.5 bg-accent transition-all duration-200 ${isActive(link.href) ? 'opacity-100' : 'opacity-0 group-hover:opacity-50'
+                    }`}
+                />
               </Link>
             ))}
           </div>
 
+          {/* Social Links + Theme Toggle */}
           <div className="hidden md:flex items-center gap-4">
             <a
               href="https://github.com/sametyc"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+              className="text-text-secondary hover:text-accent transition-colors duration-200"
+              aria-label="GitHub"
             >
               <SiGithub size={20} />
             </a>
@@ -67,15 +84,19 @@ export default function Navbar({ locale }: { locale: string }) {
               href="https://www.linkedin.com/in/samet-yilmazcelik"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+              className="text-text-secondary hover:text-accent transition-colors duration-200"
+              aria-label="LinkedIn"
             >
               <SiLinkedin size={20} />
             </a>
+            <ThemeToggle />
           </div>
 
+          {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 text-neutral-600 dark:text-neutral-400"
+            className="md:hidden p-2 text-text-secondary hover:text-text-primary transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileMenuOpen ? (
@@ -87,18 +108,18 @@ export default function Navbar({ locale }: { locale: string }) {
           </button>
         </div>
 
+        {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-3 border-t border-neutral-200 dark:border-neutral-800">
+          <div className="md:hidden py-4 space-y-3 border-t border-border/50 animate-slide-down">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={`/${locale}${link.href}`}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block text-sm font-medium transition-colors ${
-                  isActive(link.href)
-                    ? 'text-neutral-900 dark:text-white'
-                    : 'text-neutral-600 dark:text-neutral-400'
-                }`}
+                className={`block text-sm font-medium transition-colors ${isActive(link.href)
+                  ? 'text-accent'
+                  : 'text-text-secondary hover:text-text-primary'
+                  }`}
               >
                 {link.label[isEn ? 'en' : 'tr']}
               </Link>
@@ -108,7 +129,8 @@ export default function Navbar({ locale }: { locale: string }) {
                 href="https://github.com/sametyc"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-600 dark:text-neutral-400"
+                className="text-text-secondary hover:text-accent transition-colors"
+                aria-label="GitHub"
               >
                 <SiGithub size={20} />
               </a>
@@ -116,7 +138,8 @@ export default function Navbar({ locale }: { locale: string }) {
                 href="https://www.linkedin.com/in/samet-yilmazcelik"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-600 dark:text-neutral-400"
+                className="text-text-secondary hover:text-accent transition-colors"
+                aria-label="LinkedIn"
               >
                 <SiLinkedin size={20} />
               </a>
