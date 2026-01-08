@@ -11,10 +11,11 @@ interface AboutViewProps {
   locale: string;
   profile: any;
   experiences: any[];
-  experiencesError: any;
+  experiencesError?: string | null;
   skills: any[];
-  skillsError: any;
+  skillsError?: string | null;
 }
+
 
 export default function AboutView({
   framework,
