@@ -32,23 +32,8 @@ export default async function LabAboutPage({ params }: PageProps) {
     );
   }
 
-  // Inject Supabase config for microfrontends
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
   return (
     <>
-      {/* Inject Supabase config into window for microfrontends */}
-      <Script
-        id="supabase-config"
-        strategy="beforeInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.__SUPABASE_URL__ = "${supabaseUrl}";
-            window.__SUPABASE_ANON_KEY__ = "${supabaseAnonKey}";
-          `,
-        }}
-      />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="mb-8">

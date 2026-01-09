@@ -84,7 +84,7 @@
       }));
   }
 
-  onMounted(async () => {
+  onMount(async () => {
     console.info('[MF] Svelte About mounted');
     
     try {

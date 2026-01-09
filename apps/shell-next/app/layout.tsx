@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -11,6 +12,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -32,6 +36,12 @@ export default function RootLayout({
             `,
           }}
         />
+        <Script id="supabase-config" strategy="beforeInteractive">
+          {`
+            window.__SUPABASE_URL__ = "${supabaseUrl}";
+            window.__SUPABASE_ANON_KEY__ = "${supabaseAnonKey}";
+          `}
+        </Script>
       </head>
       <body className="antialiased">{children}</body>
     </html>
