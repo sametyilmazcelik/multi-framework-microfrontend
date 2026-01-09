@@ -11,7 +11,7 @@ export interface SkillCategory {
 }
 
 export async function getSkills(locale: 'tr' | 'en' = 'en'): Promise<SkillCategory[]> {
-    const { data, error } = await supabase
+    const { data, error } = await supabase!
         .from('skills')
         .select('*')
         .order('category', { ascending: true })

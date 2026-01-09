@@ -13,7 +13,7 @@ export interface Experience {
 }
 
 export async function getExperiences(locale: 'tr' | 'en' = 'en'): Promise<Experience[]> {
-    const { data, error } = await supabase
+    const { data, error } = await supabase!
         .from('experiences')
         .select('*')
         .order('order_index', { ascending: true });

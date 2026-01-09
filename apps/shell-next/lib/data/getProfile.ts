@@ -13,7 +13,7 @@ export interface Profile {
 }
 
 export async function getProfile(locale: 'tr' | 'en' = 'en'): Promise<Profile | null> {
-    const { data, error } = await supabase
+    const { data, error } = await supabase!
         .from('profile')
         .select('*')
         .single();

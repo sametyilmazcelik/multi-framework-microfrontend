@@ -11,7 +11,7 @@ export interface Project {
 }
 
 export async function getProjects(locale: 'tr' | 'en' = 'en'): Promise<Project[]> {
-    const { data, error } = await supabase
+    const { data, error } = await supabase!
         .from('projects')
         .select('*')
         .order('order_index', { ascending: true });

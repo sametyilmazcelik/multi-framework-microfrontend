@@ -10,7 +10,7 @@ export interface Education {
 }
 
 export async function getEducation(locale: 'tr' | 'en' = 'en'): Promise<Education[]> {
-    const { data, error } = await supabase
+    const { data, error } = await supabase!
         .from('education')
         .select('*')
         .order('order_index', { ascending: true });
