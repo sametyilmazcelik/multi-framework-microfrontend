@@ -80,7 +80,7 @@ export default function Navbar({ locale }: { locale: string }) {
           {/* Social Links + Theme Toggle */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="https://github.com/sametyc"
+              href="https://github.com/sametyilmazcelik"
               target="_blank"
               rel="noopener noreferrer"
               className="text-text-secondary hover:text-accent transition-colors duration-200"
@@ -136,7 +136,7 @@ export default function Navbar({ locale }: { locale: string }) {
             <div className="flex items-center gap-4 pt-2">
               <LocaleToggle />
               <a
-                href="https://github.com/sametyc"
+                href="https://github.com/sametyilmazcelik"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-text-secondary hover:text-accent transition-colors"

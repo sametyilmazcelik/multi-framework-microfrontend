@@ -21,7 +21,7 @@ export default function Footer({ locale }: { locale: string }) {
           {/* Social Links */}
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com/sametyc"
+              href="https://github.com/sametyilmazcelik"
               target="_blank"
               rel="noopener noreferrer"
               className="text-text-secondary hover:text-accent transition-all duration-200 hover:scale-110"

@@ -16,7 +16,7 @@ export default async function StackPage({ params }: { params: { locale: string }
                 <div className="flex items-center gap-2 mb-6">
                     <span className="w-1 h-8 bg-accent rounded-full"></span>
                     <h1 className="text-text-primary">
-                        {isEn ? 'Tech Stack' : 'Teknoloji Yığını'}
+                        {isEn ? 'Tech Stack' : 'Kullandığım Teknolojiler'}
                     </h1>
                 </div>
                 <p className="text-xl text-text-secondary max-w-2xl">

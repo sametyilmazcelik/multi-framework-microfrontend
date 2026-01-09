@@ -61,7 +61,7 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                         </div>
                         <div>
                             <h3 className="font-semibold text-text-primary">Email</h3>
-                            <p className="text-sm text-text-secondary">samet@example.com</p>
+                            <p className="text-sm text-text-secondary">samet.yilmazcelik@gmail.com</p>
                         </div>
                     </a>
 
@@ -81,7 +81,7 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                     </a>
 
                     <a
-                        href="https://github.com/sametyc"
+                        href="https://github.com/sametyilmazcelik"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="card-hover flex items-center gap-4 group"

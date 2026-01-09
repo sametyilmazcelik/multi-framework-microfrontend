@@ -107,12 +107,18 @@ export default async function HomePage({ params }: PageProps) {
         <div className="lg:col-span-8 space-y-10">
           {/* Main Heading */}
           <section>
-            <h1 className="text-text-primary mb-6 tracking-tight leading-tight">
-              {isEn ? 'Crafting digital experiences with ' : 'Dijital deneyimler yaratıyorum '}
-              <span className="text-gradient">{isEn ? 'precision' : 'hassasiyet'}</span>
-              {isEn ? ' and ' : ' ve '}
-              <span className="text-gradient-vertical">{isEn ? 'passion' : 'tutku'}</span>
-              {isEn ? '.' : ' ile.'}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-tight text-white">
+              {isEn ? (
+                <>
+                  Developing <span className="text-gradient">performance</span> and <span className="text-gradient">user experience</span> focused, <br className="hidden md:block" />
+                  modern interfaces.
+                </>
+              ) : (
+                <>
+                  <span className="text-gradient">Performans</span> ve <span className="text-gradient">kullanıcı deneyimi</span> odaklı, <br className="hidden md:block" />
+                  modern arayüzler geliştiriyorum.
+                </>
+              )}
             </h1>
             <div className="prose prose-lg max-w-none">
               <p className="text-xl text-text-secondary leading-relaxed">{summary}</p>
