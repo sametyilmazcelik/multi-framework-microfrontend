@@ -1,8 +1,12 @@
+import { generateLocaleStaticParams } from '@/lib/i18n';
+
 interface PageProps {
   params: {
     locale: string;
   };
 }
+
+export const generateStaticParams = generateLocaleStaticParams;
 
 export default function VueDemoPage({ params }: PageProps) {
   const { locale } = params;

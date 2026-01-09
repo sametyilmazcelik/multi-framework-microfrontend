@@ -1,4 +1,4 @@
-import { supabase } from '../supabase';
+import { supabase } from '@repo/supabase-client';
 
 export interface Skill {
     name: string;

@@ -1,3 +1,4 @@
+import { generateLocaleStaticParams } from '@/lib/i18n';
 import { supabase } from '@repo/supabase-client';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
@@ -8,6 +9,8 @@ interface PageProps {
     locale: string;
   };
 }
+
+export const generateStaticParams = generateLocaleStaticParams;
 
 export default async function HomePage({ params }: PageProps) {
   const { locale } = params;

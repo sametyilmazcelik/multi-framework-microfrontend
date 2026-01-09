@@ -1,0 +1,842 @@
+﻿
+> shell-next@0.1.0 build C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next
+> next build
+
+  Ôû▓ Next.js 14.2.35
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ Ô£ô Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/28) ...
+node.exe :  Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/lab/mul
+ti-framework". Read more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+At C:\Users\soner\AppData\Roaming\npm\pnpm.ps1:24 char:5
++     & "node$exe"  "$basedir/node_modules/pnpm/bin/pnpm.cjs" $args
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ( Ô¿» useSearchP...ith-csr-bailout:String) [], RemoteExc 
+   eption
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr/lab/multi-framework". Read more: https://nextjs.org/docs/messag
+es/prerender-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/contact". Read mor
+e: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr/contact". Read more: https://nextjs.org/docs/messages/prerender
+-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/contact". Read mor
+e: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en/contact". Read more: https://nextjs.org/docs/messages/prerender
+-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/lab/multi-framewor
+k". Read more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en/lab/multi-framework". Read more: https://nextjs.org/docs/messag
+es/prerender-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/demos/svelte". Rea
+d more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr/demos/svelte". Read more: https://nextjs.org/docs/messages/prer
+ender-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/demos/svelte". Rea
+d more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en/demos/svelte". Read more: https://nextjs.org/docs/messages/prer
+ender-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]". Read more: https
+://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr". Read more: https://nextjs.org/docs/messages/prerender-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]". Read more: https
+://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en". Read more: https://nextjs.org/docs/messages/prerender-error
+
+   Generating static pages (7/28) 
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/lab/about". Read m
+ore: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr/lab/about". Read more: https://nextjs.org/docs/messages/prerend
+er-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/lab/about". Read m
+ore: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en/lab/about". Read more: https://nextjs.org/docs/messages/prerend
+er-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/demos/vue". Read m
+ore: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr/demos/vue". Read more: https://nextjs.org/docs/messages/prerend
+er-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/demos/vue". Read m
+ore: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en/demos/vue". Read more: https://nextjs.org/docs/messages/prerend
+er-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/projects". Read mo
+re: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr/projects". Read more: https://nextjs.org/docs/messages/prerende
+r-error
+
+   Generating static pages (14/28) 
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/stack". Read more:
+ https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en/stack". Read more: https://nextjs.org/docs/messages/prerender-e
+rror
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/demos/angular". Re
+ad more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr/demos/angular". Read more: https://nextjs.org/docs/messages/pre
+render-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/stack". Read more:
+ https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr/stack". Read more: https://nextjs.org/docs/messages/prerender-e
+rror
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/resume". Read more
+: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr/resume". Read more: https://nextjs.org/docs/messages/prerender-
+error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/resume". Read more
+: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en/resume". Read more: https://nextjs.org/docs/messages/prerender-
+error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/projects". Read mo
+re: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en/projects". Read more: https://nextjs.org/docs/messages/prerende
+r-error
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/demos/angular". Re
+ad more: https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en/demos/angular". Read more: https://nextjs.org/docs/messages/pre
+render-error
+
+   Generating static pages (21/28) 
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/demos". Read more:
+ https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr/demos". Read more: https://nextjs.org/docs/messages/prerender-e
+rror
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/demos". Read more:
+ https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en/demos". Read more: https://nextjs.org/docs/messages/prerender-e
+rror
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/about". Read more:
+ https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/tr/about". Read more: https://nextjs.org/docs/messages/prerender-e
+rror
+
+ Ô¿» useSearchParams() should be wrapped in a suspense boundary at page "/[locale]/about". Read more:
+ https://nextjs.org/docs/messages/missing-suspense-with-csr-bailout
+    at a (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:10644)
+    at c (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\814.js:1:21587)
+    at x (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next\.next\server\
+chunks\424.js:1:1289)
+    at nj (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:46252)
+    at nM (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:47572)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64547)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+    at nD (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:66681)
+    at nL (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:64854)
+    at nB (C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\node_modules\.pnpm\next@14.2
+.35_react-dom@18.3_df45ead59d8de199da747739d8ff16ec\node_modules\next\dist\compiled\next-server\app-p
+age.runtime.prod.js:12:67539)
+
+Error occurred prerendering page "/en/about". Read more: https://nextjs.org/docs/messages/prerender-e
+rror
+
+ Ô£ô Generating static pages (28/28)
+
+> Export encountered errors on following paths:
+	/[locale]/about/page: /en/about
+	/[locale]/about/page: /tr/about
+	/[locale]/contact/page: /en/contact
+	/[locale]/contact/page: /tr/contact
+	/[locale]/demos/angular/page: /en/demos/angular
+	/[locale]/demos/angular/page: /tr/demos/angular
+	/[locale]/demos/page: /en/demos
+	/[locale]/demos/page: /tr/demos
+	/[locale]/demos/svelte/page: /en/demos/svelte
+	/[locale]/demos/svelte/page: /tr/demos/svelte
+	/[locale]/demos/vue/page: /en/demos/vue
+	/[locale]/demos/vue/page: /tr/demos/vue
+	/[locale]/lab/about/page: /en/lab/about
+	/[locale]/lab/about/page: /tr/lab/about
+	/[locale]/lab/multi-framework/page: /en/lab/multi-framework
+	/[locale]/lab/multi-framework/page: /tr/lab/multi-framework
+	/[locale]/page: /en
+	/[locale]/page: /tr
+	/[locale]/projects/page: /en/projects
+	/[locale]/projects/page: /tr/projects
+	/[locale]/resume/page: /en/resume
+	/[locale]/resume/page: /tr/resume
+	/[locale]/stack/page: /en/stack
+	/[locale]/stack/page: /tr/stack
+C:\Users\soner\Documents\GitHub\multi-framework-microfrontend\apps\shell-next:
+ÔÇëERR_PNPM_RECURSIVE_RUN_FIRST_FAILÔÇë shell-next@0.1.0 build: `next build`
+Exit status 1

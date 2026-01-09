@@ -1,4 +1,7 @@
+import { generateLocaleStaticParams } from '@/lib/i18n';
 import { getSkills } from '@/lib/data/getSkills';
+
+export const generateStaticParams = generateLocaleStaticParams;
 
 export default async function StackPage({ params }: { params: { locale: string } }) {
     const isEn = params.locale === 'en';

@@ -1,4 +1,5 @@
-import { supabase, getLocaleValue } from '../supabase';
+import { supabase } from '@repo/supabase-client';
+import { getLocaleValue } from '@/lib/i18n';
 
 export interface Education {
     id: string;

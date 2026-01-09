@@ -1,3 +1,4 @@
+import { generateLocaleStaticParams } from '@/lib/i18n';
 import { getProjects } from '@/lib/data/getProjects';
 import ProjectsClient from '@/components/projects/ProjectsClient';
 
@@ -6,6 +7,8 @@ interface PageProps {
     locale: string;
   };
 }
+
+export const generateStaticParams = generateLocaleStaticParams;
 
 export default async function ProjectsPage({ params }: PageProps) {
   const { locale } = params;

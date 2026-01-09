@@ -1,27 +1,19 @@
+import { generateLocaleStaticParams } from '@/lib/i18n';
 import { getProfile } from '@/lib/data/getProfile';
 import { getExperiences } from '@/lib/data/getExperiences';
 import { getSkills } from '@/lib/data/getSkills';
-import AboutView from '@/components/about/AboutView';
-import FrameworkToggle from '@/components/about/FrameworkToggle';
-import FrameworkHost from '@/components/about/FrameworkHost';
+import LabAboutClient from './LabAboutClient';
 import Script from 'next/script';
 
 interface PageProps {
   params: {
     locale: string;
   };
-  searchParams: {
-    fw?: string;
-  };
 }
 
-type Framework = 'react' | 'angular' | 'svelte' | 'vue';
+export const generateStaticParams = generateLocaleStaticParams;
 
-const isValidFramework = (fw: string | undefined): fw is Framework => {
-  return fw === 'react' || fw === 'angular' || fw === 'svelte' || fw === 'vue';
-};
-
-export default async function LabAboutPage({ params, searchParams }: PageProps) {
+export default async function LabAboutPage({ params }: PageProps) {
   const { locale } = params;
   const validLocale = (locale === 'tr' || locale === 'en') ? locale : 'en';
 
@@ -39,10 +31,6 @@ export default async function LabAboutPage({ params, searchParams }: PageProps) 
       </div>
     );
   }
-
-  const activeFramework: Framework = isValidFramework(searchParams.fw)
-    ? searchParams.fw
-    : 'react';
 
   // Inject Supabase config for microfrontends
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -72,20 +60,12 @@ export default async function LabAboutPage({ params, searchParams }: PageProps) 
           </p>
         </div>
 
-        <FrameworkToggle />
-        {activeFramework === 'react' ? (
-          <AboutView
-            framework="React"
-            locale={locale}
-            profile={profile}
-            experiences={experiences}
-            skills={skillCategories}
-            experiencesError={null}
-            skillsError={null}
-          />
-        ) : (
-          <FrameworkHost framework={activeFramework} locale={locale} />
-        )}
+        <LabAboutClient
+          locale={locale}
+          profile={profile}
+          experiences={experiences}
+          skills={skillCategories}
+        />
       </div>
     </>
   );

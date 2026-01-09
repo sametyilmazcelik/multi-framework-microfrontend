@@ -1,3 +1,4 @@
+import { generateLocaleStaticParams } from '@/lib/i18n';
 import Link from 'next/link';
 
 interface PageProps {
@@ -5,6 +6,8 @@ interface PageProps {
     locale: string;
   };
 }
+
+export const generateStaticParams = generateLocaleStaticParams;
 
 const demos = [
   { name: 'Angular', path: 'angular', color: 'bg-red-600' },

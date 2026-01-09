@@ -1,4 +1,5 @@
-import { supabase, getLocaleValue, type LocaleField } from '../supabase';
+import { supabase } from '@repo/supabase-client';
+import { getLocaleValue } from '@/lib/i18n';
 
 export interface Profile {
     name: string;

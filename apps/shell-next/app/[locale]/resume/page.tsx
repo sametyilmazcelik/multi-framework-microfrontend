@@ -1,3 +1,4 @@
+import { generateLocaleStaticParams } from '@/lib/i18n';
 import { getProfile } from '@/lib/data/getProfile';
 import { getExperiences } from '@/lib/data/getExperiences';
 import { getProjects } from '@/lib/data/getProjects';
@@ -11,6 +12,8 @@ interface PageProps {
     locale: string;
   };
 }
+
+export const generateStaticParams = generateLocaleStaticParams;
 
 export default async function ResumePage({ params }: PageProps) {
   const { locale } = params;
