@@ -13,12 +13,40 @@ export default async function HomePage({ params }: PageProps) {
   const { locale } = params;
   const isEn = locale === 'en';
 
-  const { data: profile } = await supabase
+  // ✅ Null-safe narrowing (TS build "possibly null" hatasını kesin çözer)
+  const client = supabase;
+
+  if (!client) {
+    // CI env eksikse bile build patlamasın diye fallback içerik
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <h1 className="text-text-primary mb-4">
+          {isEn ? 'Welcome' : 'Hoş geldin'}
+        </h1>
+        <p className="text-text-secondary">
+          {isEn
+            ? 'Configuration is missing. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.'
+            : 'Konfigürasyon eksik. NEXT_PUBLIC_SUPABASE_URL ve NEXT_PUBLIC_SUPABASE_ANON_KEY ayarlanmalı.'}
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Button href={`/${locale}/projects`} variant="primary">
+            {isEn ? 'View Projects' : 'Projeleri Gör'}
+          </Button>
+          <Button href={`/${locale}/contact`} variant="secondary">
+            {isEn ? 'Get in Touch' : 'İletişime Geç'}
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  const { data: profile } = await client
     .from('profile')
     .select('*')
     .single();
 
-  const { data: projects } = await supabase
+  const { data: projects } = await client
     .from('projects')
     .select('*')
     .order('created_at', { ascending: false })
@@ -78,19 +106,13 @@ export default async function HomePage({ params }: PageProps) {
           <section>
             <h1 className="text-text-primary mb-6 tracking-tight leading-tight">
               {isEn ? 'Crafting digital experiences with ' : 'Dijital deneyimler yaratıyorum '}
-              <span className="text-gradient">
-                {isEn ? 'precision' : 'hassasiyet'}
-              </span>
+              <span className="text-gradient">{isEn ? 'precision' : 'hassasiyet'}</span>
               {isEn ? ' and ' : ' ve '}
-              <span className="text-gradient-vertical">
-                {isEn ? 'passion' : 'tutku'}
-              </span>
+              <span className="text-gradient-vertical">{isEn ? 'passion' : 'tutku'}</span>
               {isEn ? '.' : ' ile.'}
             </h1>
             <div className="prose prose-lg max-w-none">
-              <p className="text-xl text-text-secondary leading-relaxed">
-                {summary}
-              </p>
+              <p className="text-xl text-text-secondary leading-relaxed">{summary}</p>
             </div>
           </section>
 
@@ -99,7 +121,12 @@ export default async function HomePage({ params }: PageProps) {
             <div className="card-hover group">
               <div className="h-10 w-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent mb-4 group-hover:scale-110 transition-transform">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
                 </svg>
               </div>
               <h3 className="text-lg font-bold text-text-primary mb-2">
@@ -115,7 +142,12 @@ export default async function HomePage({ params }: PageProps) {
             <div className="card-hover group">
               <div className="h-10 w-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-500 mb-4 group-hover:scale-110 transition-transform">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
                 </svg>
               </div>
               <h3 className="text-lg font-bold text-text-primary mb-2">
@@ -149,25 +181,23 @@ export default async function HomePage({ params }: PageProps) {
         <div className="animate-slide-up">
           <div className="flex items-center gap-2 mb-8">
             <span className="w-1 h-6 bg-accent rounded-full"></span>
-            <h2 className="text-text-primary">
-              {isEn ? 'Featured Projects' : 'Öne Çıkan Projeler'}
-            </h2>
+            <h2 className="text-text-primary">{isEn ? 'Featured Projects' : 'Öne Çıkan Projeler'}</h2>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project: any) => {
               const name = project.name?.[locale] || project.name?.en || project.name || 'Untitled';
-              const description = project.description?.[locale] || project.description?.en || project.description || '';
+              const description =
+                project.description?.[locale] || project.description?.en || project.description || '';
 
               return (
                 <div key={project.id} className="card-glow">
-                  <h3 className="text-xl font-bold text-text-primary mb-2">
-                    {name}
-                  </h3>
+                  <h3 className="text-xl font-bold text-text-primary mb-2">{name}</h3>
+
                   {description && (
-                    <p className="text-sm text-text-secondary mb-4 line-clamp-3">
-                      {description}
-                    </p>
+                    <p className="text-sm text-text-secondary mb-4 line-clamp-3">{description}</p>
                   )}
+
                   {project.tech && Array.isArray(project.tech) && project.tech.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {project.tech.slice(0, 3).map((tech: string, idx: number) => (
@@ -184,6 +214,7 @@ export default async function HomePage({ params }: PageProps) {
               );
             })}
           </div>
+
           <div className="text-center mt-8">
             <Button href={`/${locale}/projects`} variant="outline">
               {isEn ? 'View All Projects' : 'Tüm Projeleri Gör'}
@@ -194,4 +225,3 @@ export default async function HomePage({ params }: PageProps) {
     </div>
   );
 }
-

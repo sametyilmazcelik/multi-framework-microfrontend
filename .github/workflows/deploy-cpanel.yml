@@ -1,50 +1,50 @@
-name: Deploy to cPanel (sametyilmazcelik.com)
+  name: Deploy to cPanel (sametyilmazcelik.com)
 
-on:
-  push:
-    branches: ["main"]
+  on:
+    push:
+      branches: ["main"]
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
-      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+  jobs:
+    build-and-deploy:
+      runs-on: ubuntu-latest
+      env:
+        NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+        NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+        - name: Setup Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: 20
 
-      - name: Enable Corepack + pnpm 10
-        run: |
-          corepack enable
-          corepack prepare pnpm@10.0.0 --activate
-          pnpm -v
+        - name: Enable Corepack + pnpm 10
+          run: |
+            corepack enable
+            corepack prepare pnpm@10.0.0 --activate
+            pnpm -v
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        - name: Install dependencies
+          run: pnpm install --frozen-lockfile
 
-      - name: Build shared packages
-        run: pnpm -r --filter @repo/supabase-client build
+        - name: Build shared packages
+          run: pnpm -r --filter @repo/supabase-client build
 
-      - name: Build microfrontends
-        run: pnpm build:mf
+        - name: Build microfrontends
+          run: pnpm build:mf
 
-      - name: Build shell (Next.js static export)
-        run: pnpm --filter shell-next build
+        - name: Build shell (Next.js static export)
+          run: pnpm --filter shell-next build
 
-      - name: Deploy to cPanel via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}
-          local-dir: apps/shell-next/out/
-          server-dir: /
-          dangerous-clean-slate: true
+        - name: Deploy to cPanel via FTP
+          uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+          with:
+            server: ${{ secrets.FTP_SERVER }}
+            username: ${{ secrets.FTP_USERNAME }}
+            password: ${{ secrets.FTP_PASSWORD }}
+            port: ${{ secrets.FTP_PORT }}
+            local-dir: apps/shell-next/out/
+            server-dir: /
+            dangerous-clean-slate: true
