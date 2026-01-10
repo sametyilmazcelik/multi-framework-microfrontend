@@ -32,8 +32,14 @@ export default function AboutView({
     <>
       <FrameworkBadge framework={framework} locale={validLocale} />
       <AboutHero profile={profile} locale={locale} />
-      <AboutStats locale={validLocale} />
-      
+      <AboutStats
+        locale={validLocale}
+        stats={{
+          experience: 9,
+          projects: 20
+        }}
+      />
+
       {experiencesError ? (
         <div className="mt-12 pt-8 border-t border-neutral-200">
           <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
@@ -44,9 +50,9 @@ export default function AboutView({
           </div>
         </div>
       ) : (
-        <ExperienceTimeline 
-          experiences={experiences || []} 
-          locale={validLocale} 
+        <ExperienceTimeline
+          experiences={experiences || []}
+          locale={validLocale}
         />
       )}
 
@@ -60,9 +66,9 @@ export default function AboutView({
           </div>
         </div>
       ) : (
-        <SkillsSection 
-          skills={skills || []} 
-          locale={validLocale} 
+        <SkillsSection
+          skills={skills || []}
+          locale={validLocale}
         />
       )}
     </>
