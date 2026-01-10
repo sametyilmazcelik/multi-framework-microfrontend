@@ -1,36 +1,40 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useEffect } from 'react';
 import { SiGithub, SiLinkedin } from 'react-icons/si';
 import { HiMail } from 'react-icons/hi';
+import { useFormState, useFormStatus } from 'react-dom';
+import { sendEmailAction } from '@/app/actions/contact';
+
+const initialState = {
+    success: false,
+    message: '',
+};
+
+function SubmitButton({ isEn }: { isEn: boolean }) {
+    const { pending } = useFormStatus();
+
+    return (
+        <button
+            type="submit"
+            disabled={pending}
+            className="w-full px-6 py-3 bg-accent hover:bg-accent-hover text-white font-medium rounded-lg shadow-lg hover:shadow-glow transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+            {pending ? (isEn ? 'Sending...' : 'Gönderiliyor...') : (isEn ? 'Send Message' : 'Mesaj Gönder')}
+        </button>
+    );
+}
 
 export default function ContactPageClient({ locale }: { locale: string }) {
     const isEn = locale === 'en';
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
-    });
-    const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+    const [state, formAction] = useFormState(sendEmailAction, initialState);
+    const formRef = useRef<HTMLFormElement>(null);
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setStatus('sending');
-
-        // Simulate form submission
-        setTimeout(() => {
-            setStatus('success');
-            setFormData({ name: '', email: '', message: '' });
-            setTimeout(() => setStatus('idle'), 3000);
-        }, 1000);
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData(prev => ({
-            ...prev,
-            [e.target.name]: e.target.value
-        }));
-    };
+    useEffect(() => {
+        if (state.success && formRef.current) {
+            formRef.current.reset();
+        }
+    }, [state.success]);
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
@@ -53,7 +57,7 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                 {/* Contact Methods */}
                 <div className="lg:col-span-1 space-y-6">
                     <a
-                        href="mailto:samet@example.com"
+                        href="mailto:samet.yilmazcelik@gmail.com"
                         className="card-hover flex items-center gap-4 group"
                     >
                         <div className="p-3 rounded-lg bg-accent/10 text-accent group-hover:scale-110 transition-transform">
@@ -91,7 +95,7 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                         </div>
                         <div>
                             <h3 className="font-semibold text-text-primary">GitHub</h3>
-                            <p className="text-sm text-text-secondary">sametyc</p>
+                            <p className="text-sm text-text-secondary">sametyilmazcelik</p>
                         </div>
                     </a>
                 </div>
@@ -102,7 +106,7 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                         <h2 className="text-2xl font-bold text-text-primary mb-6">
                             {isEn ? 'Send a Message' : 'Mesaj Gönder'}
                         </h2>
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form ref={formRef} action={formAction} className="space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-2">
                                     {isEn ? 'Name' : 'İsim'}
@@ -111,9 +115,9 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                                     type="text"
                                     id="name"
                                     name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
                                     required
+                                    minLength={2}
+                                    maxLength={50}
                                     className="w-full px-4 py-3 rounded-lg glass border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-text-primary placeholder:text-text-muted"
                                     placeholder={isEn ? 'Your name' : 'Adınız'}
                                 />
@@ -127,8 +131,6 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                                     type="email"
                                     id="email"
                                     name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
                                     required
                                     className="w-full px-4 py-3 rounded-lg glass border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-text-primary placeholder:text-text-muted"
                                     placeholder={isEn ? 'your@email.com' : 'email@adresiniz.com'}
@@ -142,29 +144,26 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                                 <textarea
                                     id="message"
                                     name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
                                     required
+                                    minLength={10}
+                                    maxLength={1000}
                                     rows={6}
                                     className="w-full px-4 py-3 rounded-lg glass border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-text-primary placeholder:text-text-muted resize-none"
                                     placeholder={isEn ? 'Your message...' : 'Mesajınız...'}
                                 />
                             </div>
 
-                            <button
-                                type="submit"
-                                disabled={status === 'sending'}
-                                className="w-full px-6 py-3 bg-accent hover:bg-accent-hover text-white font-medium rounded-lg shadow-lg hover:shadow-glow transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                            >
-                                {status === 'sending' && (isEn ? 'Sending...' : 'Gönderiliyor...')}
-                                {status === 'success' && (isEn ? 'Sent!' : 'Gönderildi!')}
-                                {status === 'idle' && (isEn ? 'Send Message' : 'Mesaj Gönder')}
-                                {status === 'error' && (isEn ? 'Try Again' : 'Tekrar Dene')}
-                            </button>
+                            <SubmitButton isEn={isEn} />
 
-                            {status === 'success' && (
+                            {state.success && (
                                 <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 text-sm">
                                     {isEn ? 'Message sent successfully!' : 'Mesaj başarıyla gönderildi!'}
+                                </div>
+                            )}
+
+                            {!state.success && state.message && (
+                                <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-sm">
+                                    {state.message}
                                 </div>
                             )}
                         </form>

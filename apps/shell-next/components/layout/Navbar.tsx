@@ -134,6 +134,7 @@ export default function Navbar({ locale }: { locale: string }) {
               </Link>
             ))}
             <div className="flex items-center gap-4 pt-2">
+              <ThemeToggle />
               <LocaleToggle />
               <a
                 href="https://github.com/sametyilmazcelik"

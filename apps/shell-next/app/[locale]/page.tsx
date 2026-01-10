@@ -138,7 +138,7 @@ export default async function HomePage({ params }: PageProps) {
               />
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
 
               {/* Content Overlay */}
               <div className="absolute inset-0 flex flex-col justify-end p-6 text-center">
@@ -167,7 +167,7 @@ export default async function HomePage({ params }: PageProps) {
         <div className="lg:col-span-8 space-y-10">
           {/* Main Heading */}
           <section>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-tight text-white">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 leading-tight text-text-primary">
               {isEn ? (
                 <>
                   Developing <span className="text-gradient">performance</span> and <span className="text-gradient">user experience</span> focused, <br className="hidden md:block" />
