@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: 'Samet Yılmazçelik - Senior Frontend Developer',
   description: 'Professional portfolio website showcasing modern frontend development skills',
   metadataBase: new URL('https://sametyilmazcelik.com'),
+  verification: {
+    google: 'W9UefXpHP6NixgC4c3HgXx4ZJOTRQc-bw3bGa3ofubs',
+  },
 };
 
 export default function RootLayout({

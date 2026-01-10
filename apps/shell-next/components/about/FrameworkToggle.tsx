@@ -22,8 +22,8 @@ function FrameworkToggleInner() {
   };
 
   return (
-    <div className="mb-12 flex justify-center">
-      <div className="inline-flex p-1 rounded-xl bg-surface-elevated/50 backdrop-blur-md border border-white/5 shadow-inner">
+    <div className="mb-12 flex justify-center w-full px-4">
+      <div className="inline-flex p-1 rounded-xl bg-surface-elevated/50 backdrop-blur-md border border-white/5 shadow-inner max-w-full overflow-x-auto no-scrollbar">
         {frameworks.map((fw) => {
           const isActive = currentFramework === fw;
           const config = frameworkConfig[fw];
@@ -61,8 +61,8 @@ function FrameworkToggleInner() {
 
 function FrameworkToggleFallback() {
   return (
-    <div className="mb-12 flex justify-center">
-      <div className="inline-flex p-1 rounded-xl bg-surface-elevated/50 backdrop-blur-md border border-white/5 shadow-inner">
+    <div className="mb-12 flex justify-center w-full px-4">
+      <div className="inline-flex p-1 rounded-xl bg-surface-elevated/50 backdrop-blur-md border border-white/5 shadow-inner max-w-full overflow-x-auto no-scrollbar">
         {frameworks.map((fw) => {
           const config = frameworkConfig[fw];
           const isActive = fw === 'next';
