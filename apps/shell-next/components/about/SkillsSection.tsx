@@ -2,120 +2,63 @@ import Card from '@/components/ui/Card';
 
 interface SkillItem {
   name: string;
-  level: string;
+  level?: string;
 }
 
-interface Skill {
-  id?: string;
+interface SkillCategory {
   category: string;
-  content: {
-    tr?: SkillItem[];
-    en?: SkillItem[];
-  } | null;
-  order_index: number;
+  skills: SkillItem[];
 }
 
 interface SkillsSectionProps {
-  skills: Skill[];
-  locale: 'en' | 'tr';
+  skills: SkillCategory[];
+  locale: string;
 }
 
-const levelLabels = {
-  en: {
-    beginner: 'Beginner',
-    intermediate: 'Intermediate',
-    advanced: 'Advanced',
-  },
-  tr: {
-    beginner: 'Başlangıç',
-    intermediate: 'Orta',
-    advanced: 'İleri',
-  },
-};
-
-const levelColors: Record<string, string> = {
-  beginner: 'bg-blue-100 text-blue-800 border-blue-200',
-  intermediate: 'bg-yellow-100 text-yellow-800 border-yellow-200',
-  advanced: 'bg-emerald-100 text-emerald-800 border-emerald-200',
-};
-
 export default function SkillsSection({ skills, locale }: SkillsSectionProps) {
-  if (skills.length === 0) {
-    return (
-      <div className="mt-12 pt-8 border-t border-neutral-200">
-        <p className="text-neutral-600 text-center">No skills found</p>
-      </div>
-    );
-  }
-
-  const groupedSkills = skills.reduce((acc, skill) => {
-    if (!acc[skill.category]) {
-      acc[skill.category] = [];
-    }
-    acc[skill.category].push(skill);
-    return acc;
-  }, {} as Record<string, Skill[]>);
-
-  const sortedCategories = Object.keys(groupedSkills).sort();
-  sortedCategories.forEach((category) => {
-    groupedSkills[category].sort((a, b) => a.order_index - b.order_index);
-  });
-
-  const getLocalizedSkills = (skill: Skill): SkillItem[] => {
-    if (!skill.content || typeof skill.content !== 'object') {
-      return [];
-    }
-    const localizedItems = skill.content[locale] || skill.content.en;
-    return Array.isArray(localizedItems) ? localizedItems : [];
-  };
+  // skills prop is already processed by getSkills into categories
+  const categories = skills || [];
 
   return (
-    <div className="mt-12 pt-8 border-t border-neutral-200">
-      <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-8">
+    <div className="mt-16 pt-8 border-t border-border/30">
+      <h2 className="text-3xl md:text-4xl font-bold text-text-primary mb-12 flex items-center gap-3">
+        <span className="w-1.5 h-8 bg-gradient-to-b from-accent to-accent/50 rounded-full"></span>
         {locale === 'en' ? 'Skills' : 'Yetenekler'}
       </h2>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {sortedCategories.map((category) => {
-          const categorySkills = groupedSkills[category];
-          const allSkillItems: Array<{ skill: Skill; item: SkillItem }> = [];
-
-          categorySkills.forEach((skill) => {
-            const items = getLocalizedSkills(skill);
-            items.forEach((item) => {
-              allSkillItems.push({ skill, item });
-            });
-          });
+        {categories.map((catGroup) => {
+          const categoryName = catGroup.category;
+          const items = catGroup.skills || [];
 
           return (
-            <Card key={category} className="hover:scale-[1.02] transition-transform duration-200">
-              <h3 className="text-lg font-bold text-neutral-900 mb-4 pb-2 border-b border-neutral-200">
-                {category}
+            <Card key={categoryName} className="hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/5">
+              <h3 className="text-lg font-bold text-text-primary mb-6 pb-2 border-b border-border/10 flex items-center justify-between">
+                {categoryName}
+                <span className="text-xs font-normal text-text-muted px-2 py-0.5 rounded bg-surface-elevated/50">
+                  {items.length}
+                </span>
               </h3>
-              {allSkillItems.length === 0 ? (
-                <p className="text-sm text-neutral-500 italic">
+
+              {items.length === 0 ? (
+                <p className="text-sm text-text-muted italic">
                   {locale === 'en' ? 'No skills in this category' : 'Bu kategoride yetenek bulunmuyor'}
                 </p>
               ) : (
                 <div className="flex flex-wrap gap-2">
-                  {allSkillItems.map(({ skill, item }, index) => {
+                  {items.map((item, index) => {
                     const levelKey = item.level?.toLowerCase() || '';
-                    const levelLabel = levelLabels[locale][levelKey as keyof typeof levelLabels[typeof locale]] || item.level;
-                    const levelColor = levelColors[levelKey] || 'bg-neutral-100 text-neutral-800 border-neutral-200';
 
                     return (
                       <div
-                        key={`${skill.id || skill.category}-${item.name}-${index}`}
-                        className="inline-flex items-center gap-2 px-3 py-1.5 bg-neutral-50 border border-neutral-200 rounded-lg hover:bg-neutral-100 transition-colors"
+                        key={`${categoryName}-${item.name}-${index}`}
+                        className="group relative inline-flex items-center gap-2 px-3 py-1.5 bg-surface-elevated/30 border border-border/30 rounded-lg hover:bg-surface-elevated hover:border-accent/40 transition-all duration-300"
                       >
-                        <span className="text-sm font-medium text-neutral-900">{item.name}</span>
-                        {item.level && (
-                          <span
-                            className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border ${levelColor}`}
-                          >
-                            {levelLabel}
-                          </span>
-                        )}
+                        <span className="text-sm font-medium text-text-secondary group-hover:text-text-primary transition-colors">{item.name}</span>
+                        {/* 
+                         Optional: Level indicator dot 
+                        */}
+                        <span className={`w-1.5 h-1.5 rounded-full ${levelKey === 'advanced' || levelKey === 'ileri' ? 'bg-emerald-400' : levelKey === 'intermediate' || levelKey === 'orta' ? 'bg-yellow-400' : 'bg-blue-400'}`} />
                       </div>
                     );
                   })}

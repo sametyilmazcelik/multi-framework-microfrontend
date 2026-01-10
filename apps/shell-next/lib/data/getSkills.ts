@@ -1,4 +1,5 @@
 import { supabase } from '@repo/supabase-client';
+import { getLocaleValue } from '@/lib/i18n';
 
 export interface Skill {
     name: string;
@@ -28,23 +29,20 @@ export async function getSkills(locale: 'tr' | 'en' = 'en'): Promise<SkillCatego
     const grouped: Record<string, Skill[]> = {};
 
     data.forEach((skillRow: any) => {
-        const category = skillRow.category || 'Other';
+        // Handle localized category names (string or JSON)
+        const category = getLocaleValue(skillRow.category, locale) || 'Other';
 
         if (!grouped[category]) {
             grouped[category] = [];
         }
 
-        // Parse content JSONB - can be either:
-        // 1. Direct array: [{name: string, level: string}]
-        // 2. Locale-keyed object: {en: [{name, level}], tr: [{name, level}]}
+        // Parse content (support for direct array or localized object)
         if (skillRow.content) {
             let items: any[] = [];
 
             if (Array.isArray(skillRow.content)) {
-                // Direct array format
                 items = skillRow.content;
             } else if (typeof skillRow.content === 'object') {
-                // Locale-keyed format
                 items = skillRow.content[locale] || skillRow.content.en || skillRow.content.tr || [];
             }
 
@@ -68,6 +66,6 @@ export async function getSkills(locale: 'tr' | 'en' = 'en'): Promise<SkillCatego
     // Convert to array format
     return Object.entries(grouped).map(([category, skills]) => ({
         category,
-        skills,
+        skills
     }));
 }

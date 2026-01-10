@@ -35,13 +35,19 @@ export default async function LabAboutPage({ params }: PageProps) {
   return (
     <>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-neutral-900 dark:text-white mb-4">
-            Multi-Framework Demo
-          </h1>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
-            Same UI rendered with different frameworks as Web Components
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="mb-12">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-1 h-8 bg-accent rounded-full"></span>
+            <h1 className="text-3xl md:text-4xl font-bold text-text-primary">
+              Multi-Framework Demo
+            </h1>
+          </div>
+          <p className="text-xl text-text-secondary max-w-4xl leading-relaxed">
+            {locale === 'en'
+              ? "This project is built with Next.js, but utilizes modern micro-frontend architecture to render React, Angular, Svelte and Vue components under one roof. This page demonstrates the power of Web Components and seamless cross-framework integration."
+              : "Bu proje Next.js ile geliştirilmiştir ancak modern mikro-frontend mimarisi sayesinde React, Angular, Svelte ve Vue bileşenlerini aynı çatı altında sunmaktadır. Bu sayfa, Web Components teknolojisinin gücünü ve frameworkler arası entegrasyonu sergiler."
+            }
           </p>
         </div>
 

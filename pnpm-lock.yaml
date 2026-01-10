@@ -185,6 +185,15 @@ importers:
       '@vitejs/plugin-vue':
         specifier: ^5.0.0
         version: 5.2.4(vite@5.4.21(@types/node@20.19.27)(less@4.2.0)(sass@1.71.1)(terser@5.44.1))(vue@3.5.26(typescript@5.4.5))
+      autoprefixer:
+        specifier: ^10.4.16
+        version: 10.4.23(postcss@8.5.6)
+      postcss:
+        specifier: ^8.4.31
+        version: 8.5.6
+      tailwindcss:
+        specifier: ^3.3.5
+        version: 3.4.19
       typescript:
         specifier: 5.4.5
         version: 5.4.5

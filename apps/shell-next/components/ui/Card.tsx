@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface CardProps {
   children: React.ReactNode;
   className?: string;
@@ -5,9 +7,21 @@ interface CardProps {
 
 export default function Card({ children, className = '' }: CardProps) {
   return (
-    <div className={`bg-white/80 dark:bg-neutral-800/80 backdrop-blur-sm border border-white/20 dark:border-neutral-700/50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 ${className}`}>
-      {children}
+    <div className={`
+      relative overflow-hidden
+      bg-surface/30 backdrop-blur-md 
+      border border-border/50 
+      rounded-2xl p-6 
+      shadow-xl 
+      transition-all duration-300 
+      group
+      ${className}
+    `}>
+      {/* Glossy gradient overlay - Subtle by default */}
+      <div className="absolute inset-0 bg-gradient-to-br from-text-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      <div className="relative z-10">
+        {children}
+      </div>
     </div>
   );
 }
-

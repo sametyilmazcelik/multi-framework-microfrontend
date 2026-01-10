@@ -1,11 +1,12 @@
 import { frameworkConfig } from './FrameworkIcons';
 
 interface FrameworkBadgeProps {
-  framework: 'React' | 'Vue' | 'Svelte' | 'Angular';
+  framework: 'Next.js' | 'React' | 'Vue' | 'Svelte' | 'Angular';
   locale: 'en' | 'tr';
 }
 
-const frameworkMap: Record<string, 'react' | 'angular' | 'svelte' | 'vue'> = {
+const frameworkMap: Record<string, 'next' | 'react' | 'angular' | 'svelte' | 'vue'> = {
+  'Next.js': 'next',
   React: 'react',
   Angular: 'angular',
   Svelte: 'svelte',
@@ -14,12 +15,14 @@ const frameworkMap: Record<string, 'react' | 'angular' | 'svelte' | 'vue'> = {
 
 const badgeTexts = {
   en: {
+    'Next.js': 'This project is built with Next.js',
     React: 'This page is implemented with React',
     Vue: 'This page is implemented with Vue',
     Svelte: 'This page is implemented with Svelte',
     Angular: 'This page is implemented with Angular',
   },
   tr: {
+    'Next.js': 'Bu proje Next.js ile geliştirilmiştir',
     React: 'Bu sayfa React ile geliştirildi',
     Vue: 'Bu sayfa Vue ile geliştirildi',
     Svelte: 'Bu sayfa Svelte ile geliştirildi',
@@ -33,9 +36,13 @@ export default function FrameworkBadge({ framework, locale }: FrameworkBadgeProp
   const config = frameworkConfig[fwKey];
 
   return (
-    <div className="mb-6">
-      <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium ${config.badgeBg} ${config.badgeText} border ${config.badgeBorder}`}>
-        <span className="w-3 h-3">{config.icon}</span>
+    <div className="mb-8 flex justify-center">
+      <span className={`
+        inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium 
+        ${config.badgeBg} ${config.badgeText} border ${config.badgeBorder}
+        transition-colors duration-300
+      `}>
+        <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70" />
         {text}
       </span>
     </div>
