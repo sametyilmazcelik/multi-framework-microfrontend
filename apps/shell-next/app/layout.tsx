@@ -2,9 +2,11 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 
+
 export const metadata: Metadata = {
   title: 'Samet Yılmazçelik - Senior Frontend Developer',
   description: 'Professional portfolio website showcasing modern frontend development skills',
+  metadataBase: new URL('https://sametyilmazcelik.com'),
 };
 
 export default function RootLayout({

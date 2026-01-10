@@ -3,6 +3,8 @@ import { supabase } from '@repo/supabase-client';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import Image from 'next/image';
+import { Metadata } from 'next';
+import JsonLd from '@/components/seo/JsonLd';
 
 interface PageProps {
   params: {
@@ -11,6 +13,39 @@ interface PageProps {
 }
 
 export const generateStaticParams = generateLocaleStaticParams;
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = params;
+  const isEn = locale === 'en';
+
+  const title = isEn
+    ? 'Samet Yılmazçelik - Senior Frontend Developer'
+    : 'Samet Yılmazçelik - Kıdemli Frontend Geliştirici';
+
+  const description = isEn
+    ? 'Senior Frontend Developer specializing in React, Next.js, and Microfrontends. Building high-performance, accessible web applications.'
+    : 'React, Next.js ve Mikro-frontend konularında uzman Kıdemli Frontend Geliştirici. Performanslı ve erişilebilir web uygulamaları geliştiriyorum.';
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `https://sametyilmazcelik.com/${locale}`,
+      languages: {
+        'en-US': 'https://sametyilmazcelik.com/en',
+        'tr-TR': 'https://sametyilmazcelik.com/tr',
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `https://sametyilmazcelik.com/${locale}`,
+      siteName: 'Samet Yılmazçelik - Portfolio',
+      locale: isEn ? 'en_US' : 'tr_TR',
+      type: 'website',
+    },
+  };
+}
 
 export default async function HomePage({ params }: PageProps) {
   const { locale } = params;
@@ -60,6 +95,31 @@ export default async function HomePage({ params }: PageProps) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+          name: 'Samet Yılmazçelik',
+          alternateName: ['Samet Yilmazcelik', 'Samet Yılmazçelik Frontend', 'Samet Yılmazçelik Developer'],
+          givenName: 'Samet',
+          familyName: 'Yılmazçelik',
+          url: 'https://sametyilmazcelik.com',
+          jobTitle: isEn ? 'Senior Frontend Developer' : 'Kıdemli Frontend Geliştirici',
+          knowsAbout: ['React', 'Next.js', 'Angular', 'Svelte', 'Tailwind CSS', 'TypeScript', 'Microfrontends'],
+          sameAs: [
+            'https://github.com/sametyilmazcelik',
+            'https://www.linkedin.com/in/samet-yilmazcelik/',
+          ],
+          email: 'mailto:contact@sametyilmazcelik.com',
+          image: 'https://sametyilmazcelik.com/assets/profile.jpg',
+          nationality: 'TR',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Istanbul',
+            addressCountry: 'TR',
+          },
+        }}
+      />
       {/* Hero Section */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
         {/* Left Column - Profile */}
