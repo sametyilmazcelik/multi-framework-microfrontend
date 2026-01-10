@@ -1,40 +1,67 @@
 'use client';
 
-import { useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { SiGithub, SiLinkedin } from 'react-icons/si';
 import { HiMail } from 'react-icons/hi';
-import { useFormState, useFormStatus } from 'react-dom';
-import { sendEmailAction } from '@/app/actions/contact';
-
-const initialState = {
-    success: false,
-    message: '',
-};
-
-function SubmitButton({ isEn }: { isEn: boolean }) {
-    const { pending } = useFormStatus();
-
-    return (
-        <button
-            type="submit"
-            disabled={pending}
-            className="w-full px-6 py-3 bg-accent hover:bg-accent-hover text-white font-medium rounded-lg shadow-lg hover:shadow-glow transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-        >
-            {pending ? (isEn ? 'Sending...' : 'Gönderiliyor...') : (isEn ? 'Send Message' : 'Mesaj Gönder')}
-        </button>
-    );
-}
 
 export default function ContactPageClient({ locale }: { locale: string }) {
     const isEn = locale === 'en';
-    const [state, formAction] = useFormState(sendEmailAction, initialState);
-    const formRef = useRef<HTMLFormElement>(null);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+    const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState('');
 
-    useEffect(() => {
-        if (state.success && formRef.current) {
-            formRef.current.reset();
+    const validateForm = () => {
+        if (!formData.name.trim()) return false;
+        if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) return false;
+        if (!formData.message.trim() || formData.message.length < 10) return false;
+        return true;
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setErrorMessage('');
+
+        if (!validateForm()) {
+            setStatus('error');
+            setErrorMessage(isEn ? 'Please fill in all fields correctly.' : 'Lütfen tüm alanları doğru şekilde doldurun.');
+            return;
         }
-    }, [state.success]);
+
+        setStatus('sending');
+
+        try {
+            const response = await fetch('https://formspree.io/f/mbddrydj', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', message: '' });
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            console.error('Error sending message:', error);
+            setStatus('error');
+            setErrorMessage(isEn ? 'Failed to send message. Please try again.' : 'Mesaj gönderilemedi. Lütfen tekrar deneyin.');
+        }
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value
+        }));
+    };
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
@@ -106,7 +133,7 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                         <h2 className="text-2xl font-bold text-text-primary mb-6">
                             {isEn ? 'Send a Message' : 'Mesaj Gönder'}
                         </h2>
-                        <form ref={formRef} action={formAction} className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-2">
                                     {isEn ? 'Name' : 'İsim'}
@@ -115,6 +142,8 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                                     type="text"
                                     id="name"
                                     name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
                                     required
                                     minLength={2}
                                     maxLength={50}
@@ -131,6 +160,8 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                                     type="email"
                                     id="email"
                                     name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                     required
                                     className="w-full px-4 py-3 rounded-lg glass border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-text-primary placeholder:text-text-muted"
                                     placeholder={isEn ? 'your@email.com' : 'email@adresiniz.com'}
@@ -144,6 +175,8 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                                 <textarea
                                     id="message"
                                     name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
                                     required
                                     minLength={10}
                                     maxLength={1000}
@@ -151,19 +184,31 @@ export default function ContactPageClient({ locale }: { locale: string }) {
                                     className="w-full px-4 py-3 rounded-lg glass border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none transition-all text-text-primary placeholder:text-text-muted resize-none"
                                     placeholder={isEn ? 'Your message...' : 'Mesajınız...'}
                                 />
+                                <div className="text-right text-xs text-text-muted mt-1">
+                                    {formData.message.length}/1000
+                                </div>
                             </div>
 
-                            <SubmitButton isEn={isEn} />
+                            <button
+                                type="submit"
+                                disabled={status === 'sending'}
+                                className="w-full px-6 py-3 bg-accent hover:bg-accent-hover text-white font-medium rounded-lg shadow-lg hover:shadow-glow transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {status === 'sending' && (isEn ? 'Sending...' : 'Gönderiliyor...')}
+                                {status === 'success' && (isEn ? 'Sent!' : 'Gönderildi!')}
+                                {status === 'idle' && (isEn ? 'Send Message' : 'Mesaj Gönder')}
+                                {status === 'error' && (isEn ? 'Try Again' : 'Tekrar Dene')}
+                            </button>
 
-                            {state.success && (
+                            {status === 'success' && (
                                 <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 text-sm">
                                     {isEn ? 'Message sent successfully!' : 'Mesaj başarıyla gönderildi!'}
                                 </div>
                             )}
 
-                            {!state.success && state.message && (
+                            {status === 'error' && errorMessage && (
                                 <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-sm">
-                                    {state.message}
+                                    {errorMessage}
                                 </div>
                             )}
                         </form>
